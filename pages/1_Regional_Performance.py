@@ -4,6 +4,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+from utils.data_adapter import get_active_dashboard_data
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
@@ -19,14 +21,12 @@ st.set_page_config(
 )
 
 
-@st.cache_data
 def load_data():
-    """Load processed order and risk datasets."""
-    orders = pd.read_csv(ORDERS_PATH)
-    risk = pd.read_csv(RISK_PATH)
+    """Load active dashboard data."""
+    dashboard_data = get_active_dashboard_data()
 
-    orders["order_date"] = pd.to_datetime(orders["order_date"], errors="coerce")
-    orders["shipping_date"] = pd.to_datetime(orders["shipping_date"], errors="coerce")
+    orders = dashboard_data["orders"]
+    risk = dashboard_data["risk"]
 
     return orders, risk
 

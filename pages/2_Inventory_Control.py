@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+from utils.data_adapter import get_active_dashboard_data
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
@@ -19,13 +20,12 @@ st.set_page_config(
 )
 
 
-@st.cache_data
 def load_data():
-    """Load inventory and order datasets."""
-    inventory = pd.read_csv(INVENTORY_PATH)
-    orders = pd.read_csv(ORDERS_PATH)
+    """Load active dashboard data."""
+    dashboard_data = get_active_dashboard_data()
 
-    orders["order_date"] = pd.to_datetime(orders["order_date"], errors="coerce")
+    inventory = dashboard_data["inventory"]
+    orders = dashboard_data["orders"]
 
     return inventory, orders
 
@@ -98,7 +98,6 @@ def show_kpis(inventory: pd.DataFrame):
 
     critical_items = inventory[inventory["inventory_status"] == "Critical"].shape[0]
     warning_items = inventory[inventory["inventory_status"] == "Warning"].shape[0]
-    healthy_items = inventory[inventory["inventory_status"] == "Healthy"].shape[0]
 
     avg_days_of_supply = inventory["days_of_supply"].mean()
     avg_inventory_risk = inventory["inventory_risk_score"].mean()
@@ -112,11 +111,10 @@ def show_kpis(inventory: pd.DataFrame):
     col3.metric("Critical Items", critical_items)
     col4.metric("Warning Items", warning_items)
 
-    col5, col6, col7 = st.columns(3)
+    col5, col6 = st.columns(2)
 
-    col5.metric("Healthy Items", healthy_items)
-    col6.metric("Avg. Days of Supply", f"{avg_days_of_supply:.1f}")
-    col7.metric("Avg. Inventory Risk Score", f"{avg_inventory_risk:.1f}")
+    col5.metric("Avg. Days of Supply", f"{avg_days_of_supply:.1f}")
+    col6.metric("Avg. Inventory Risk Score", f"{avg_inventory_risk:.1f}")
 
 
 def show_charts(inventory: pd.DataFrame):

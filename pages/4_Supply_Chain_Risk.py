@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+from utils.data_adapter import get_active_dashboard_data
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
@@ -23,18 +24,15 @@ st.set_page_config(
 )
 
 
-@st.cache_data
 def load_data():
-    """Load processed datasets."""
-    orders = pd.read_csv(ORDERS_PATH)
-    shipments = pd.read_csv(SHIPMENTS_PATH)
-    inventory = pd.read_csv(INVENTORY_PATH)
-    demand = pd.read_csv(DEMAND_PATH)
-    risk_scores = pd.read_csv(RISK_PATH)
+    """Load active dashboard data."""
+    dashboard_data = get_active_dashboard_data()
 
-    orders["order_date"] = pd.to_datetime(orders["order_date"], errors="coerce")
-    orders["shipping_date"] = pd.to_datetime(orders["shipping_date"], errors="coerce")
-    shipments["shipping_date"] = pd.to_datetime(shipments["shipping_date"], errors="coerce")
+    orders = dashboard_data["orders"]
+    shipments = dashboard_data["shipments"]
+    inventory = dashboard_data["inventory"]
+    demand = dashboard_data["demand"]
+    risk_scores = dashboard_data["risk"]
 
     return orders, shipments, inventory, demand, risk_scores
 
@@ -163,6 +161,45 @@ def calculate_demand_volatility_risk(demand: pd.DataFrame) -> float:
 
     return round(float(demand_risk), 2)
 
+def scope_supporting_tables_by_orders(
+    filtered_orders: pd.DataFrame,
+    shipments: pd.DataFrame,
+    inventory: pd.DataFrame,
+):
+    """Scope shipments, inventory, and demand according to filtered orders."""
+
+    visible_order_ids = filtered_orders["order_id"].dropna().astype(str).unique()
+    visible_products = filtered_orders["product_name"].dropna().unique()
+    visible_categories = filtered_orders["category_name"].dropna().unique()
+
+    scoped_shipments = shipments.copy()
+
+    if "order_id" in scoped_shipments.columns:
+        scoped_shipments["order_id"] = scoped_shipments["order_id"].astype(str)
+        scoped_shipments = scoped_shipments[
+            scoped_shipments["order_id"].isin(visible_order_ids)
+        ]
+
+    scoped_inventory = inventory.copy()
+
+    if "product_name" in scoped_inventory.columns:
+        scoped_inventory = scoped_inventory[
+            scoped_inventory["product_name"].isin(visible_products)
+        ]
+
+    if "category_name" in scoped_inventory.columns:
+        scoped_inventory = scoped_inventory[
+            scoped_inventory["category_name"].isin(visible_categories)
+        ]
+
+    scoped_demand = (
+        filtered_orders.groupby(["year_month", "category_name"])["order_quantity"]
+        .sum()
+        .reset_index()
+        .rename(columns={"order_quantity": "demand_quantity"})
+    )
+
+    return scoped_shipments, scoped_inventory, scoped_demand
 
 def calculate_risk_summary(
     orders: pd.DataFrame,
@@ -688,6 +725,12 @@ def main():
     if filtered_orders.empty:
         st.warning("No order records available for the selected filters.")
         return
+
+    filtered_shipments, filtered_inventory, filtered_demand = scope_supporting_tables_by_orders(
+        filtered_orders=filtered_orders,
+        shipments=filtered_shipments,
+        inventory=filtered_inventory,
+    )
 
     risk_summary = calculate_risk_summary(
         filtered_orders,

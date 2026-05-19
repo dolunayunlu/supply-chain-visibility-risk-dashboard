@@ -7,6 +7,8 @@ import streamlit as st
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 
+from utils.data_adapter import get_active_dashboard_data
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
@@ -22,14 +24,17 @@ st.set_page_config(
 )
 
 
-@st.cache_data
 def load_data():
-    """Load demand and order datasets."""
-    demand = pd.read_csv(DEMAND_PATH)
-    orders = pd.read_csv(ORDERS_PATH)
+    """Load active dashboard data."""
+    dashboard_data = get_active_dashboard_data()
 
-    demand["month_date"] = pd.to_datetime(demand["year_month"] + "-01", errors="coerce")
-    orders["order_date"] = pd.to_datetime(orders["order_date"], errors="coerce")
+    demand = dashboard_data["demand"].copy()
+    orders = dashboard_data["orders"]
+
+    demand["month_date"] = pd.to_datetime(
+        demand["year_month"] + "-01",
+        errors="coerce",
+    )
 
     return demand, orders
 

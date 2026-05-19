@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+from utils.data_adapter import get_active_dashboard_data, render_data_source_manager
 
 BASE_DIR = Path(__file__).resolve().parent
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
@@ -20,17 +21,6 @@ st.set_page_config(
 )
 
 
-@st.cache_data
-def load_data():
-    """Load processed dashboard datasets."""
-    orders = pd.read_csv(ORDERS_PATH)
-    inventory = pd.read_csv(INVENTORY_PATH)
-    risk = pd.read_csv(RISK_PATH)
-
-    orders["order_date"] = pd.to_datetime(orders["order_date"], errors="coerce")
-    orders["shipping_date"] = pd.to_datetime(orders["shipping_date"], errors="coerce")
-
-    return orders, inventory, risk
 
 
 def format_percent(value: float) -> str:
@@ -88,7 +78,7 @@ def apply_filters(orders: pd.DataFrame) -> pd.DataFrame:
 
 
 def calculate_kpis(orders: pd.DataFrame, inventory: pd.DataFrame, risk: pd.DataFrame):
-    """Calculate main dashboard KPIs."""
+    """Calculate main dashboard KPIs based on the filtered order dataset."""
 
     total_orders = orders["order_id"].nunique()
     total_sales = orders["sales"].sum()
@@ -100,15 +90,43 @@ def calculate_kpis(orders: pd.DataFrame, inventory: pd.DataFrame, risk: pd.DataF
     avg_shipping_days = orders["actual_shipping_days"].mean()
     avg_delay_days = orders["delay_days"].mean()
 
-    critical_stock_items = inventory[
-        inventory["inventory_status"] == "Critical"
+    # Scope inventory KPIs to products/categories visible in filtered orders.
+    visible_categories = orders["category_name"].dropna().unique()
+    visible_products = orders["product_name"].dropna().unique()
+
+    scoped_inventory = inventory.copy()
+
+    if "category_name" in scoped_inventory.columns:
+        scoped_inventory = scoped_inventory[
+            scoped_inventory["category_name"].isin(visible_categories)
+        ]
+
+    if "product_name" in scoped_inventory.columns:
+        scoped_inventory = scoped_inventory[
+            scoped_inventory["product_name"].isin(visible_products)
+        ]
+
+    critical_stock_items = scoped_inventory[
+        scoped_inventory["inventory_status"] == "Critical"
     ].shape[0]
 
-    warning_stock_items = inventory[
-        inventory["inventory_status"] == "Warning"
+    warning_stock_items = scoped_inventory[
+        scoped_inventory["inventory_status"] == "Warning"
     ].shape[0]
 
-    high_risk_regions = risk[risk["risk_level"] == "High"].shape[0]
+    # Scope risk KPIs to markets/regions visible in filtered orders.
+    scoped_risk = risk.copy()
+
+    visible_markets = orders["market"].dropna().unique()
+    visible_regions = orders["order_region"].dropna().unique()
+
+    if "market" in scoped_risk.columns:
+        scoped_risk = scoped_risk[scoped_risk["market"].isin(visible_markets)]
+
+    if "order_region" in scoped_risk.columns:
+        scoped_risk = scoped_risk[scoped_risk["order_region"].isin(visible_regions)]
+
+    high_risk_regions = scoped_risk[scoped_risk["risk_level"] == "High"].shape[0]
 
     return {
         "total_orders": total_orders,
@@ -122,7 +140,6 @@ def calculate_kpis(orders: pd.DataFrame, inventory: pd.DataFrame, risk: pd.DataF
         "warning_stock_items": warning_stock_items,
         "high_risk_regions": high_risk_regions,
     }
-
 
 def show_kpis(kpis: dict):
     """Display executive KPI cards."""
@@ -150,7 +167,32 @@ def show_kpis(kpis: dict):
 
 
 def show_charts(orders: pd.DataFrame, inventory: pd.DataFrame, risk: pd.DataFrame):
-    """Display overview dashboard charts."""
+    """Display overview dashboard charts based on the filtered order dataset."""
+
+    visible_categories = orders["category_name"].dropna().unique()
+    visible_products = orders["product_name"].dropna().unique()
+    visible_markets = orders["market"].dropna().unique()
+    visible_regions = orders["order_region"].dropna().unique()
+
+    scoped_inventory = inventory.copy()
+
+    if "category_name" in scoped_inventory.columns:
+        scoped_inventory = scoped_inventory[
+            scoped_inventory["category_name"].isin(visible_categories)
+        ]
+
+    if "product_name" in scoped_inventory.columns:
+        scoped_inventory = scoped_inventory[
+            scoped_inventory["product_name"].isin(visible_products)
+        ]
+
+    scoped_risk = risk.copy()
+
+    if "market" in scoped_risk.columns:
+        scoped_risk = scoped_risk[scoped_risk["market"].isin(visible_markets)]
+
+    if "order_region" in scoped_risk.columns:
+        scoped_risk = scoped_risk[scoped_risk["order_region"].isin(visible_regions)]
 
     st.divider()
 
@@ -267,54 +309,60 @@ def show_charts(orders: pd.DataFrame, inventory: pd.DataFrame, risk: pd.DataFram
     with left_col3:
         st.subheader("Inventory Status Summary")
 
-        inventory_status = (
-            inventory["inventory_status"]
-            .value_counts()
-            .reset_index()
-        )
+        if scoped_inventory.empty:
+            st.info("No inventory data available for the selected filters.")
+        else:
+            inventory_status = (
+                scoped_inventory["inventory_status"]
+                .value_counts()
+                .reset_index()
+            )
 
-        inventory_status.columns = ["inventory_status", "count"]
+            inventory_status.columns = ["inventory_status", "count"]
 
-        fig = px.bar(
-            inventory_status,
-            x="inventory_status",
-            y="count",
-            title="Inventory Status Summary",
-        )
+            fig = px.bar(
+                inventory_status,
+                x="inventory_status",
+                y="count",
+                title="Inventory Status Summary",
+            )
 
-        fig.update_layout(
-            xaxis_title="Inventory Status",
-            yaxis_title="Number of Products",
-            height=420,
-        )
+            fig.update_layout(
+                xaxis_title="Inventory Status",
+                yaxis_title="Number of Products",
+                height=420,
+            )
 
-        st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
 
     with right_col3:
         st.subheader("Risk Level Distribution")
 
-        risk_status = (
-            risk["risk_level"]
-            .value_counts()
-            .reset_index()
-        )
+        if scoped_risk.empty:
+            st.info("No risk score data available for the selected filters.")
+        else:
+            risk_status = (
+                scoped_risk["risk_level"]
+                .value_counts()
+                .reset_index()
+            )
 
-        risk_status.columns = ["risk_level", "count"]
+            risk_status.columns = ["risk_level", "count"]
 
-        fig = px.bar(
-            risk_status,
-            x="risk_level",
-            y="count",
-            title="Region Risk Level Distribution",
-        )
+            fig = px.bar(
+                risk_status,
+                x="risk_level",
+                y="count",
+                title="Region Risk Level Distribution",
+            )
 
-        fig.update_layout(
-            xaxis_title="Risk Level",
-            yaxis_title="Number of Regions",
-            height=420,
-        )
+            fig.update_layout(
+                xaxis_title="Risk Level",
+                yaxis_title="Number of Regions",
+                height=420,
+            )
 
-        st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
 
 
 def show_data_preview(orders: pd.DataFrame):
@@ -350,9 +398,16 @@ def show_data_preview(orders: pd.DataFrame):
 
 
 def main():
-    orders, inventory, risk = load_data()
+    render_data_source_manager()
+
+    dashboard_data = get_active_dashboard_data()
+    orders = dashboard_data["orders"]
+    inventory = dashboard_data["inventory"]
+    risk = dashboard_data["risk"]
 
     st.title("Supply Chain Visibility and Risk Dashboard")
+
+    st.caption(f"Active dataset: {dashboard_data['source_name']}")
 
     st.markdown(
         """
@@ -364,9 +419,10 @@ def main():
     with st.expander("Dataset and project note", expanded=False):
         st.write(
             """
-            This project uses the public DataCo Smart Supply Chain dataset as the main operational dataset.
-            The original dataset includes order, product, shipping, delivery, sales, and profit information.
-            Inventory-related fields are generated from product demand patterns for academic dashboard demonstration.
+            The default dashboard uses the public DataCo Smart Supply Chain dataset.
+            Users can also upload a company supply chain dataset from the Data Source Manager.
+            When a new dataset is uploaded and mapped, all dashboard pages can use the uploaded
+            dataset during the active session.
             """
         )
 
