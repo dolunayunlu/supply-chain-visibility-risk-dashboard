@@ -30,24 +30,38 @@ Since the original dataset does not include complete inventory planning fields, 
 The current version includes:
 
 - Executive overview dashboard
-- Total order and sales KPIs
+- Region and market performance analysis
+- Inventory monitoring dashboard
+- Shipment tracking dashboard
+- Supply chain risk analysis dashboard
+- Demand forecasting dashboard
+- Total order, sales, and profit KPIs
 - On-time and late delivery rate calculation
 - Average shipping and delay day calculation
 - Monthly order volume analysis
 - Delivery status distribution
-- Average delay by shipping mode
-- Inventory status summary
-- Cleaned order data preview
+- Shipping mode performance analysis
+- Inventory status classification
+- Critical and warning stock detection
+- Region-level risk scoring
+- Category-level risk scoring
+- Overall supply chain risk score
+- 3-month moving average demand forecast
+- Linear regression demand forecast
+- MAE and MAPE forecast evaluation
 - Processed CSV tables
 - SQLite database generation
 
-Planned modules:
+## Future Improvements
 
-- Supplier or region performance analysis
-- Inventory monitoring page
-- Shipment tracking page
-- Risk analysis page
-- Demand forecasting page
+- Improve dashboard visual design
+- Add more advanced forecasting models
+- Add export buttons for reports
+- Add automated data refresh pipeline
+- Add real-time ERP/API integration
+- Add user authentication for production use
+- Improve risk scoring with machine learning models
+- Add deployment instructions
 
 ## Technologies Used
 
@@ -84,5 +98,25 @@ supply-chain-visibility-risk-dashboard/
 │       └── supply_chain.db
 │
 ├── pages/
+│   ├── 1_Region_Market_Performance.py
+│   ├── 2_Inventory_Monitoring.py
+│   ├── 3_Shipment_Tracking.py
+│   ├── 4_Risk_Analysis.py
+│   └── 5_Demand_Forecasting.py
 ├── docs/
 └── screenshots/
+
+## Current Status
+
+The main dashboard modules are completed.
+
+Completed modules:
+
+- Executive Overview
+- Region & Market Performance
+- Inventory Monitoring
+- Shipment Tracking
+- Risk Analysis
+- Demand Forecasting
+
+The project currently provides a working multi-page Streamlit dashboard using cleaned supply chain data, generated inventory indicators, risk scoring logic, and basic demand forecasting models.

@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+*.zip
+data/raw/tokenized_access_logs.csv
+data/raw/*access_logs*
