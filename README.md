@@ -30,9 +30,9 @@ Since the original dataset does not include complete inventory planning fields, 
 The current version includes:
 
 - Executive overview dashboard
-- Region and market performance analysis
-- Inventory monitoring dashboard
-- Shipment tracking dashboard
+- Regional performance analysis
+- Inventory control dashboard
+- Shipment performance dashboard
 - Supply chain risk analysis dashboard
 - Demand forecasting dashboard
 - Total order, sales, and profit KPIs
@@ -78,7 +78,7 @@ The current version includes:
 ```text
 supply-chain-visibility-risk-dashboard/
 │
-├── app.py
+├── Overview.py
 ├── process_data.py
 ├── requirements.txt
 ├── README.md
@@ -98,11 +98,11 @@ supply-chain-visibility-risk-dashboard/
 │       └── supply_chain.db
 │
 ├── pages/
-│   ├── 1_Region_Market_Performance.py
-│   ├── 2_Inventory_Monitoring.py
-│   ├── 3_Shipment_Tracking.py
-│   ├── 4_Risk_Analysis.py
-│   └── 5_Demand_Forecasting.py
+│   ├── 1_Regional_Performance.py
+│   ├── 2_Inventory_Control.py
+│   ├── 3_Shipment_Performance.py
+│   ├── 4_Supply_Chain_Risk.py
+│   └── 5_Demand_Forecast.py
 ├── docs/
 └── screenshots/
 
@@ -112,11 +112,34 @@ The main dashboard modules are completed.
 
 Completed modules:
 
-- Executive Overview
-- Region & Market Performance
-- Inventory Monitoring
-- Shipment Tracking
-- Risk Analysis
-- Demand Forecasting
+- Overview
+- Regional Performance
+- Inventory Control
+- Shipment Performance
+- Supply Chain Risk
+- Demand Forecast
 
 The project currently provides a working multi-page Streamlit dashboard using cleaned supply chain data, generated inventory indicators, risk scoring logic, and basic demand forecasting models.
+
+## Dashboard Screenshots
+
+The dashboard includes the following pages:
+
+- Overview
+- Regional Performance
+- Inventory Control
+- Shipment Performance
+- Supply Chain Risk
+- Demand Forecast
+
+Screenshots are available in the `screenshots/` folder.
+
+## Project Diagrams
+
+The project documentation includes:
+
+- ER Diagram
+- System Architecture Diagram
+- Use Case Diagram
+
+These diagrams are available in the `docs/` folder.
