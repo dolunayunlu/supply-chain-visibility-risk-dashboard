@@ -1,0 +1,854 @@
+year_month,category_name,demand_quantity
+2015-01,Accessories,154
+2015-01,Baseball & Softball,68
+2015-01,Boxing & MMA,24
+2015-01,Camping & Hiking,415
+2015-01,Cardio Equipment,1188
+2015-01,Cleats,2390
+2015-01,Electronics,370
+2015-01,Fishing,542
+2015-01,Fitness Accessories,39
+2015-01,Girls' Apparel,122
+2015-01,Golf Apparel,18
+2015-01,Golf Balls,148
+2015-01,Golf Gloves,94
+2015-01,Golf Shoes,42
+2015-01,Hockey,76
+2015-01,Hunting & Shooting,48
+2015-01,Indoor/Outdoor Games,1892
+2015-01,Lacrosse,31
+2015-01,Men's Footwear,620
+2015-01,Shop By Sport,1068
+2015-01,Tennis & Racquet,44
+2015-01,Trade-In,133
+2015-01,Water Sports,471
+2015-01,Women's Apparel,1857
+2015-02,Accessories,149
+2015-02,Baseball & Softball,47
+2015-02,Boxing & MMA,9
+2015-02,Camping & Hiking,392
+2015-02,Cardio Equipment,978
+2015-02,Cleats,2005
+2015-02,Electronics,333
+2015-02,Fishing,442
+2015-02,Fitness Accessories,13
+2015-02,Girls' Apparel,144
+2015-02,Golf Apparel,32
+2015-02,Golf Balls,122
+2015-02,Golf Gloves,86
+2015-02,Golf Shoes,46
+2015-02,Hockey,70
+2015-02,Hunting & Shooting,39
+2015-02,Indoor/Outdoor Games,1589
+2015-02,Lacrosse,20
+2015-02,Men's Footwear,642
+2015-02,Shop By Sport,937
+2015-02,Tennis & Racquet,28
+2015-02,Trade-In,75
+2015-02,Water Sports,433
+2015-02,Women's Apparel,1807
+2015-03,Accessories,181
+2015-03,Baseball & Softball,66
+2015-03,Boxing & MMA,37
+2015-03,Camping & Hiking,405
+2015-03,Cardio Equipment,1145
+2015-03,Cleats,2355
+2015-03,Electronics,368
+2015-03,Fishing,525
+2015-03,Fitness Accessories,18
+2015-03,Girls' Apparel,148
+2015-03,Golf Apparel,10
+2015-03,Golf Balls,223
+2015-03,Golf Gloves,104
+2015-03,Golf Shoes,42
+2015-03,Hockey,47
+2015-03,Hunting & Shooting,34
+2015-03,Indoor/Outdoor Games,1925
+2015-03,Lacrosse,30
+2015-03,Men's Footwear,618
+2015-03,Shop By Sport,1123
+2015-03,Tennis & Racquet,47
+2015-03,Trade-In,127
+2015-03,Water Sports,480
+2015-03,Women's Apparel,2004
+2015-04,Accessories,154
+2015-04,Baseball & Softball,66
+2015-04,Boxing & MMA,39
+2015-04,Camping & Hiking,417
+2015-04,Cardio Equipment,1062
+2015-04,Cleats,2187
+2015-04,Electronics,279
+2015-04,Fishing,523
+2015-04,Fitness Accessories,66
+2015-04,Girls' Apparel,141
+2015-04,Golf Apparel,39
+2015-04,Golf Balls,178
+2015-04,Golf Gloves,99
+2015-04,Golf Shoes,13
+2015-04,Hockey,49
+2015-04,Hunting & Shooting,24
+2015-04,Indoor/Outdoor Games,1765
+2015-04,Lacrosse,24
+2015-04,Men's Footwear,653
+2015-04,Shop By Sport,946
+2015-04,Tennis & Racquet,24
+2015-04,Trade-In,112
+2015-04,Water Sports,489
+2015-04,Women's Apparel,1938
+2015-05,Accessories,233
+2015-05,Baseball & Softball,57
+2015-05,Boxing & MMA,34
+2015-05,Camping & Hiking,392
+2015-05,Cardio Equipment,1411
+2015-05,Cleats,2220
+2015-05,Electronics,358
+2015-05,Fishing,516
+2015-05,Fitness Accessories,28
+2015-05,Girls' Apparel,136
+2015-05,Golf Apparel,33
+2015-05,Golf Balls,201
+2015-05,Golf Gloves,146
+2015-05,Golf Shoes,50
+2015-05,Hockey,84
+2015-05,Hunting & Shooting,29
+2015-05,Indoor/Outdoor Games,1712
+2015-05,Lacrosse,48
+2015-05,Men's Footwear,644
+2015-05,Shop By Sport,1035
+2015-05,Tennis & Racquet,20
+2015-05,Trade-In,94
+2015-05,Water Sports,495
+2015-05,Women's Apparel,1926
+2015-06,Accessories,196
+2015-06,Baseball & Softball,49
+2015-06,Boxing & MMA,22
+2015-06,Camping & Hiking,411
+2015-06,Cardio Equipment,1271
+2015-06,Cleats,2142
+2015-06,Electronics,334
+2015-06,Fishing,538
+2015-06,Fitness Accessories,37
+2015-06,Girls' Apparel,150
+2015-06,Golf Apparel,41
+2015-06,Golf Balls,127
+2015-06,Golf Gloves,93
+2015-06,Golf Shoes,48
+2015-06,Hockey,68
+2015-06,Hunting & Shooting,26
+2015-06,Indoor/Outdoor Games,1701
+2015-06,Lacrosse,19
+2015-06,Men's Footwear,666
+2015-06,Shop By Sport,952
+2015-06,Tennis & Racquet,26
+2015-06,Trade-In,84
+2015-06,Water Sports,460
+2015-06,Women's Apparel,1742
+2015-07,Accessories,187
+2015-07,Baseball & Softball,70
+2015-07,Boxing & MMA,13
+2015-07,Camping & Hiking,412
+2015-07,Cardio Equipment,1110
+2015-07,Cleats,2274
+2015-07,Electronics,354
+2015-07,Fishing,515
+2015-07,Fitness Accessories,23
+2015-07,Girls' Apparel,133
+2015-07,Golf Apparel,47
+2015-07,Golf Balls,139
+2015-07,Golf Gloves,91
+2015-07,Golf Shoes,36
+2015-07,Hockey,51
+2015-07,Hunting & Shooting,38
+2015-07,Indoor/Outdoor Games,1835
+2015-07,Lacrosse,36
+2015-07,Men's Footwear,664
+2015-07,Shop By Sport,978
+2015-07,Tennis & Racquet,48
+2015-07,Trade-In,111
+2015-07,Water Sports,472
+2015-07,Women's Apparel,2163
+2015-08,Accessories,205
+2015-08,Baseball & Softball,41
+2015-08,Boxing & MMA,22
+2015-08,Camping & Hiking,407
+2015-08,Cardio Equipment,1148
+2015-08,Cleats,2411
+2015-08,Electronics,376
+2015-08,Fishing,509
+2015-08,Fitness Accessories,31
+2015-08,Girls' Apparel,129
+2015-08,Golf Apparel,46
+2015-08,Golf Balls,182
+2015-08,Golf Gloves,66
+2015-08,Golf Shoes,35
+2015-08,Hockey,84
+2015-08,Hunting & Shooting,61
+2015-08,Indoor/Outdoor Games,1566
+2015-08,Lacrosse,39
+2015-08,Men's Footwear,688
+2015-08,Shop By Sport,1021
+2015-08,Tennis & Racquet,41
+2015-08,Trade-In,96
+2015-08,Water Sports,488
+2015-08,Women's Apparel,1920
+2015-09,Accessories,181
+2015-09,Baseball & Softball,75
+2015-09,Boxing & MMA,31
+2015-09,Camping & Hiking,436
+2015-09,Cardio Equipment,1144
+2015-09,Cleats,2177
+2015-09,Electronics,354
+2015-09,Fishing,508
+2015-09,Fitness Accessories,29
+2015-09,Girls' Apparel,115
+2015-09,Golf Apparel,19
+2015-09,Golf Balls,150
+2015-09,Golf Gloves,77
+2015-09,Golf Shoes,31
+2015-09,Hockey,61
+2015-09,Hunting & Shooting,37
+2015-09,Indoor/Outdoor Games,1793
+2015-09,Lacrosse,19
+2015-09,Men's Footwear,678
+2015-09,Shop By Sport,1034
+2015-09,Tennis & Racquet,38
+2015-09,Trade-In,68
+2015-09,Water Sports,436
+2015-09,Women's Apparel,1875
+2015-10,Accessories,216
+2015-10,Baseball & Softball,39
+2015-10,Boxing & MMA,34
+2015-10,Camping & Hiking,428
+2015-10,Cardio Equipment,1274
+2015-10,Cleats,2171
+2015-10,Electronics,316
+2015-10,Fishing,524
+2015-10,Fitness Accessories,46
+2015-10,Girls' Apparel,163
+2015-10,Golf Apparel,27
+2015-10,Golf Balls,202
+2015-10,Golf Gloves,87
+2015-10,Golf Shoes,32
+2015-10,Hockey,66
+2015-10,Hunting & Shooting,22
+2015-10,Indoor/Outdoor Games,1803
+2015-10,Lacrosse,38
+2015-10,Men's Footwear,677
+2015-10,Shop By Sport,986
+2015-10,Tennis & Racquet,26
+2015-10,Trade-In,80
+2015-10,Water Sports,484
+2015-10,Women's Apparel,1962
+2015-11,Accessories,210
+2015-11,Baseball & Softball,56
+2015-11,Boxing & MMA,26
+2015-11,Camping & Hiking,430
+2015-11,Cardio Equipment,1089
+2015-11,Cleats,2205
+2015-11,Electronics,394
+2015-11,Fishing,539
+2015-11,Fitness Accessories,37
+2015-11,Girls' Apparel,106
+2015-11,Golf Apparel,36
+2015-11,Golf Balls,167
+2015-11,Golf Gloves,145
+2015-11,Golf Shoes,29
+2015-11,Hockey,56
+2015-11,Hunting & Shooting,46
+2015-11,Indoor/Outdoor Games,1789
+2015-11,Lacrosse,15
+2015-11,Men's Footwear,661
+2015-11,Shop By Sport,1047
+2015-11,Tennis & Racquet,37
+2015-11,Trade-In,106
+2015-11,Water Sports,464
+2015-11,Women's Apparel,1773
+2015-12,Accessories,186
+2015-12,Baseball & Softball,76
+2015-12,Boxing & MMA,37
+2015-12,Camping & Hiking,389
+2015-12,Cardio Equipment,1162
+2015-12,Cleats,2218
+2015-12,Electronics,409
+2015-12,Fishing,560
+2015-12,Fitness Accessories,28
+2015-12,Girls' Apparel,132
+2015-12,Golf Apparel,31
+2015-12,Golf Balls,178
+2015-12,Golf Gloves,88
+2015-12,Golf Shoes,40
+2015-12,Hockey,86
+2015-12,Hunting & Shooting,27
+2015-12,Indoor/Outdoor Games,1856
+2015-12,Lacrosse,29
+2015-12,Men's Footwear,721
+2015-12,Shop By Sport,1027
+2015-12,Tennis & Racquet,36
+2015-12,Trade-In,103
+2015-12,Water Sports,498
+2015-12,Women's Apparel,1873
+2016-01,Accessories,187
+2016-01,Baseball & Softball,44
+2016-01,Boxing & MMA,29
+2016-01,Camping & Hiking,416
+2016-01,Cardio Equipment,1202
+2016-01,Cleats,2188
+2016-01,Electronics,327
+2016-01,Fishing,553
+2016-01,Fitness Accessories,30
+2016-01,Girls' Apparel,88
+2016-01,Golf Apparel,20
+2016-01,Golf Balls,182
+2016-01,Golf Gloves,70
+2016-01,Golf Shoes,18
+2016-01,Hockey,80
+2016-01,Hunting & Shooting,31
+2016-01,Indoor/Outdoor Games,1830
+2016-01,Lacrosse,18
+2016-01,Men's Footwear,683
+2016-01,Shop By Sport,955
+2016-01,Tennis & Racquet,28
+2016-01,Trade-In,95
+2016-01,Water Sports,454
+2016-01,Women's Apparel,2069
+2016-02,Accessories,178
+2016-02,Baseball & Softball,68
+2016-02,Boxing & MMA,30
+2016-02,Camping & Hiking,383
+2016-02,Cardio Equipment,1044
+2016-02,Cleats,2047
+2016-02,Electronics,341
+2016-02,Fishing,518
+2016-02,Fitness Accessories,18
+2016-02,Girls' Apparel,159
+2016-02,Golf Apparel,28
+2016-02,Golf Balls,173
+2016-02,Golf Gloves,74
+2016-02,Golf Shoes,36
+2016-02,Hockey,34
+2016-02,Hunting & Shooting,40
+2016-02,Indoor/Outdoor Games,1780
+2016-02,Lacrosse,26
+2016-02,Men's Footwear,635
+2016-02,Shop By Sport,893
+2016-02,Tennis & Racquet,27
+2016-02,Trade-In,90
+2016-02,Water Sports,428
+2016-02,Women's Apparel,1715
+2016-03,Accessories,177
+2016-03,Baseball & Softball,64
+2016-03,Boxing & MMA,20
+2016-03,Camping & Hiking,433
+2016-03,Cardio Equipment,1098
+2016-03,Cleats,2401
+2016-03,Electronics,298
+2016-03,Fishing,528
+2016-03,Fitness Accessories,20
+2016-03,Girls' Apparel,157
+2016-03,Golf Apparel,29
+2016-03,Golf Balls,101
+2016-03,Golf Gloves,96
+2016-03,Golf Shoes,24
+2016-03,Hockey,54
+2016-03,Hunting & Shooting,32
+2016-03,Indoor/Outdoor Games,1669
+2016-03,Lacrosse,35
+2016-03,Men's Footwear,675
+2016-03,Shop By Sport,966
+2016-03,Tennis & Racquet,37
+2016-03,Trade-In,135
+2016-03,Water Sports,453
+2016-03,Women's Apparel,1847
+2016-04,Accessories,236
+2016-04,Baseball & Softball,78
+2016-04,Boxing & MMA,14
+2016-04,Camping & Hiking,384
+2016-04,Cardio Equipment,1116
+2016-04,Cleats,2225
+2016-04,Electronics,260
+2016-04,Fishing,527
+2016-04,Fitness Accessories,31
+2016-04,Girls' Apparel,135
+2016-04,Golf Apparel,36
+2016-04,Golf Balls,129
+2016-04,Golf Gloves,83
+2016-04,Golf Shoes,50
+2016-04,Hockey,39
+2016-04,Hunting & Shooting,42
+2016-04,Indoor/Outdoor Games,1648
+2016-04,Lacrosse,39
+2016-04,Men's Footwear,683
+2016-04,Shop By Sport,1043
+2016-04,Tennis & Racquet,65
+2016-04,Trade-In,119
+2016-04,Water Sports,429
+2016-04,Women's Apparel,1797
+2016-05,Accessories,211
+2016-05,Baseball & Softball,69
+2016-05,Boxing & MMA,37
+2016-05,Camping & Hiking,426
+2016-05,Cardio Equipment,972
+2016-05,Cleats,2432
+2016-05,Electronics,338
+2016-05,Fishing,502
+2016-05,Fitness Accessories,42
+2016-05,Girls' Apparel,139
+2016-05,Golf Apparel,42
+2016-05,Golf Balls,144
+2016-05,Golf Gloves,116
+2016-05,Golf Shoes,45
+2016-05,Hockey,64
+2016-05,Hunting & Shooting,18
+2016-05,Indoor/Outdoor Games,1770
+2016-05,Lacrosse,21
+2016-05,Men's Footwear,677
+2016-05,Shop By Sport,970
+2016-05,Tennis & Racquet,30
+2016-05,Trade-In,99
+2016-05,Water Sports,516
+2016-05,Women's Apparel,1923
+2016-06,Accessories,175
+2016-06,Baseball & Softball,39
+2016-06,Boxing & MMA,27
+2016-06,Camping & Hiking,421
+2016-06,Cardio Equipment,1081
+2016-06,Cleats,2181
+2016-06,Electronics,349
+2016-06,Fishing,546
+2016-06,Fitness Accessories,16
+2016-06,Girls' Apparel,137
+2016-06,Golf Apparel,23
+2016-06,Golf Balls,158
+2016-06,Golf Gloves,83
+2016-06,Golf Shoes,38
+2016-06,Hockey,68
+2016-06,Hunting & Shooting,34
+2016-06,Indoor/Outdoor Games,1585
+2016-06,Lacrosse,34
+2016-06,Men's Footwear,672
+2016-06,Shop By Sport,942
+2016-06,Tennis & Racquet,38
+2016-06,Trade-In,69
+2016-06,Water Sports,411
+2016-06,Women's Apparel,1881
+2016-07,Accessories,181
+2016-07,Baseball & Softball,112
+2016-07,Boxing & MMA,41
+2016-07,Camping & Hiking,418
+2016-07,Cardio Equipment,1145
+2016-07,Cleats,2228
+2016-07,Electronics,321
+2016-07,Fishing,523
+2016-07,Fitness Accessories,27
+2016-07,Girls' Apparel,140
+2016-07,Golf Apparel,39
+2016-07,Golf Balls,160
+2016-07,Golf Gloves,88
+2016-07,Golf Shoes,32
+2016-07,Hockey,72
+2016-07,Hunting & Shooting,33
+2016-07,Indoor/Outdoor Games,1805
+2016-07,Lacrosse,25
+2016-07,Men's Footwear,687
+2016-07,Shop By Sport,929
+2016-07,Tennis & Racquet,40
+2016-07,Trade-In,122
+2016-07,Water Sports,515
+2016-07,Women's Apparel,1969
+2016-08,Accessories,146
+2016-08,Baseball & Softball,40
+2016-08,Boxing & MMA,43
+2016-08,Camping & Hiking,419
+2016-08,Cardio Equipment,1183
+2016-08,Cleats,2311
+2016-08,Electronics,375
+2016-08,Fishing,534
+2016-08,Fitness Accessories,41
+2016-08,Girls' Apparel,138
+2016-08,Golf Apparel,49
+2016-08,Golf Balls,115
+2016-08,Golf Gloves,104
+2016-08,Golf Shoes,27
+2016-08,Hockey,71
+2016-08,Hunting & Shooting,33
+2016-08,Indoor/Outdoor Games,1605
+2016-08,Lacrosse,17
+2016-08,Men's Footwear,725
+2016-08,Shop By Sport,1036
+2016-08,Tennis & Racquet,27
+2016-08,Trade-In,103
+2016-08,Water Sports,459
+2016-08,Women's Apparel,2082
+2016-09,Accessories,195
+2016-09,Baseball & Softball,60
+2016-09,Boxing & MMA,27
+2016-09,Camping & Hiking,385
+2016-09,Cardio Equipment,1040
+2016-09,Cleats,2224
+2016-09,Electronics,355
+2016-09,Fishing,508
+2016-09,Fitness Accessories,29
+2016-09,Girls' Apparel,112
+2016-09,Golf Apparel,42
+2016-09,Golf Balls,199
+2016-09,Golf Gloves,51
+2016-09,Golf Shoes,34
+2016-09,Hockey,54
+2016-09,Hunting & Shooting,60
+2016-09,Indoor/Outdoor Games,1741
+2016-09,Lacrosse,25
+2016-09,Men's Footwear,684
+2016-09,Shop By Sport,971
+2016-09,Tennis & Racquet,40
+2016-09,Trade-In,116
+2016-09,Water Sports,473
+2016-09,Women's Apparel,1859
+2016-10,Accessories,242
+2016-10,Baseball & Softball,60
+2016-10,Boxing & MMA,39
+2016-10,Camping & Hiking,422
+2016-10,Cardio Equipment,1071
+2016-10,Cleats,2278
+2016-10,Electronics,406
+2016-10,Fishing,509
+2016-10,Fitness Accessories,28
+2016-10,Girls' Apparel,134
+2016-10,Golf Apparel,27
+2016-10,Golf Balls,134
+2016-10,Golf Gloves,102
+2016-10,Golf Shoes,27
+2016-10,Hockey,49
+2016-10,Hunting & Shooting,26
+2016-10,Indoor/Outdoor Games,1995
+2016-10,Lacrosse,23
+2016-10,Men's Footwear,725
+2016-10,Shop By Sport,1010
+2016-10,Tennis & Racquet,25
+2016-10,Trade-In,103
+2016-10,Water Sports,490
+2016-10,Women's Apparel,2011
+2016-11,Accessories,218
+2016-11,Baseball & Softball,66
+2016-11,Boxing & MMA,61
+2016-11,Camping & Hiking,426
+2016-11,Cardio Equipment,1207
+2016-11,Cleats,2260
+2016-11,Electronics,337
+2016-11,Fishing,560
+2016-11,Fitness Accessories,29
+2016-11,Girls' Apparel,96
+2016-11,Golf Apparel,35
+2016-11,Golf Balls,138
+2016-11,Golf Gloves,111
+2016-11,Golf Shoes,8
+2016-11,Hockey,62
+2016-11,Hunting & Shooting,40
+2016-11,Indoor/Outdoor Games,1759
+2016-11,Lacrosse,38
+2016-11,Men's Footwear,656
+2016-11,Shop By Sport,955
+2016-11,Tennis & Racquet,32
+2016-11,Trade-In,77
+2016-11,Water Sports,475
+2016-11,Women's Apparel,1847
+2016-12,Accessories,237
+2016-12,Baseball & Softball,65
+2016-12,Boxing & MMA,28
+2016-12,Camping & Hiking,395
+2016-12,Cardio Equipment,1191
+2016-12,Cleats,2361
+2016-12,Electronics,332
+2016-12,Fishing,525
+2016-12,Fitness Accessories,39
+2016-12,Girls' Apparel,136
+2016-12,Golf Apparel,32
+2016-12,Golf Balls,185
+2016-12,Golf Gloves,106
+2016-12,Golf Shoes,46
+2016-12,Hockey,59
+2016-12,Hunting & Shooting,32
+2016-12,Indoor/Outdoor Games,1860
+2016-12,Lacrosse,48
+2016-12,Men's Footwear,686
+2016-12,Shop By Sport,971
+2016-12,Tennis & Racquet,43
+2016-12,Trade-In,92
+2016-12,Water Sports,446
+2016-12,Women's Apparel,1859
+2017-01,Accessories,172
+2017-01,Baseball & Softball,66
+2017-01,Boxing & MMA,36
+2017-01,Camping & Hiking,425
+2017-01,Cardio Equipment,1251
+2017-01,Cleats,2270
+2017-01,Electronics,297
+2017-01,Fishing,503
+2017-01,Fitness Accessories,29
+2017-01,Girls' Apparel,81
+2017-01,Golf Apparel,27
+2017-01,Golf Balls,173
+2017-01,Golf Gloves,74
+2017-01,Golf Shoes,27
+2017-01,Hockey,36
+2017-01,Hunting & Shooting,31
+2017-01,Indoor/Outdoor Games,1771
+2017-01,Lacrosse,44
+2017-01,Men's Footwear,663
+2017-01,Shop By Sport,1083
+2017-01,Tennis & Racquet,48
+2017-01,Trade-In,92
+2017-01,Water Sports,432
+2017-01,Women's Apparel,1974
+2017-02,Accessories,182
+2017-02,Baseball & Softball,45
+2017-02,Boxing & MMA,33
+2017-02,Camping & Hiking,422
+2017-02,Cardio Equipment,1244
+2017-02,Cleats,2136
+2017-02,Electronics,299
+2017-02,Fishing,481
+2017-02,Fitness Accessories,24
+2017-02,Girls' Apparel,121
+2017-02,Golf Apparel,29
+2017-02,Golf Balls,151
+2017-02,Golf Gloves,77
+2017-02,Golf Shoes,43
+2017-02,Hockey,62
+2017-02,Hunting & Shooting,24
+2017-02,Indoor/Outdoor Games,1764
+2017-02,Lacrosse,41
+2017-02,Men's Footwear,579
+2017-02,Shop By Sport,803
+2017-02,Tennis & Racquet,43
+2017-02,Trade-In,68
+2017-02,Water Sports,443
+2017-02,Women's Apparel,1956
+2017-03,Accessories,208
+2017-03,Baseball & Softball,84
+2017-03,Boxing & MMA,28
+2017-03,Camping & Hiking,450
+2017-03,Cardio Equipment,1108
+2017-03,Cleats,2215
+2017-03,Electronics,348
+2017-03,Fishing,516
+2017-03,Fitness Accessories,39
+2017-03,Girls' Apparel,112
+2017-03,Golf Apparel,22
+2017-03,Golf Balls,137
+2017-03,Golf Gloves,121
+2017-03,Golf Shoes,20
+2017-03,Hockey,55
+2017-03,Hunting & Shooting,37
+2017-03,Indoor/Outdoor Games,1720
+2017-03,Lacrosse,39
+2017-03,Men's Footwear,726
+2017-03,Shop By Sport,1035
+2017-03,Tennis & Racquet,30
+2017-03,Trade-In,95
+2017-03,Water Sports,495
+2017-03,Women's Apparel,2036
+2017-04,Accessories,152
+2017-04,As Seen on  TV!,9
+2017-04,Baseball & Softball,55
+2017-04,Boxing & MMA,49
+2017-04,Camping & Hiking,436
+2017-04,Cardio Equipment,1107
+2017-04,Cleats,2224
+2017-04,Electronics,208
+2017-04,Fishing,517
+2017-04,Fitness Accessories,9
+2017-04,Girls' Apparel,111
+2017-04,Golf Apparel,40
+2017-04,Golf Bags & Carts,4
+2017-04,Golf Balls,88
+2017-04,Golf Gloves,77
+2017-04,Golf Shoes,47
+2017-04,Hockey,27
+2017-04,Hunting & Shooting,81
+2017-04,Indoor/Outdoor Games,1836
+2017-04,Kids' Golf Clubs,26
+2017-04,Lacrosse,24
+2017-04,Men's Footwear,664
+2017-04,Men's Golf Clubs,18
+2017-04,Shop By Sport,1042
+2017-04,Soccer,14
+2017-04,Strength Training,4
+2017-04,Tennis & Racquet,23
+2017-04,Trade-In,87
+2017-04,Water Sports,481
+2017-04,Women's Apparel,1702
+2017-04,Women's Golf Clubs,27
+2017-05,As Seen on  TV!,49
+2017-05,Baseball & Softball,15
+2017-05,Boxing & MMA,70
+2017-05,Camping & Hiking,451
+2017-05,Cardio Equipment,1083
+2017-05,Cleats,2218
+2017-05,Fishing,534
+2017-05,Golf Apparel,22
+2017-05,Golf Bags & Carts,18
+2017-05,Golf Gloves,93
+2017-05,Golf Shoes,95
+2017-05,Hunting & Shooting,36
+2017-05,Indoor/Outdoor Games,1775
+2017-05,Kids' Golf Clubs,120
+2017-05,Lacrosse,47
+2017-05,Men's Footwear,740
+2017-05,Men's Golf Clubs,101
+2017-05,Shop By Sport,1033
+2017-05,Soccer,84
+2017-05,Strength Training,7
+2017-05,Trade-In,18
+2017-05,Water Sports,485
+2017-05,Women's Apparel,1860
+2017-05,Women's Golf Clubs,79
+2017-06,As Seen on  TV!,28
+2017-06,Baseball & Softball,12
+2017-06,Boxing & MMA,97
+2017-06,Camping & Hiking,410
+2017-06,Cardio Equipment,999
+2017-06,Cleats,1934
+2017-06,Fishing,524
+2017-06,Golf Apparel,30
+2017-06,Golf Bags & Carts,11
+2017-06,Golf Gloves,65
+2017-06,Golf Shoes,137
+2017-06,Hunting & Shooting,43
+2017-06,Indoor/Outdoor Games,1552
+2017-06,Kids' Golf Clubs,124
+2017-06,Lacrosse,43
+2017-06,Men's Footwear,675
+2017-06,Men's Golf Clubs,84
+2017-06,Shop By Sport,922
+2017-06,Soccer,65
+2017-06,Strength Training,13
+2017-06,Trade-In,9
+2017-06,Water Sports,461
+2017-06,Women's Apparel,1889
+2017-06,Women's Golf Clubs,67
+2017-07,As Seen on  TV!,62
+2017-07,Baseball & Softball,14
+2017-07,Boxing & MMA,79
+2017-07,Camping & Hiking,431
+2017-07,Cardio Equipment,1148
+2017-07,Cleats,2305
+2017-07,Fishing,545
+2017-07,Golf Apparel,26
+2017-07,Golf Bags & Carts,12
+2017-07,Golf Gloves,48
+2017-07,Golf Shoes,102
+2017-07,Hunting & Shooting,64
+2017-07,Indoor/Outdoor Games,1736
+2017-07,Kids' Golf Clubs,102
+2017-07,Lacrosse,37
+2017-07,Men's Footwear,707
+2017-07,Men's Golf Clubs,101
+2017-07,Shop By Sport,1060
+2017-07,Soccer,60
+2017-07,Strength Training,14
+2017-07,Trade-In,15
+2017-07,Water Sports,471
+2017-07,Women's Apparel,1867
+2017-07,Women's Golf Clubs,85
+2017-08,As Seen on  TV!,45
+2017-08,Baseball & Softball,14
+2017-08,Boxing & MMA,102
+2017-08,Camping & Hiking,391
+2017-08,Cardio Equipment,1154
+2017-08,Cleats,2313
+2017-08,Fishing,548
+2017-08,Golf Apparel,41
+2017-08,Golf Bags & Carts,16
+2017-08,Golf Gloves,77
+2017-08,Golf Shoes,107
+2017-08,Hunting & Shooting,56
+2017-08,Indoor/Outdoor Games,1699
+2017-08,Kids' Golf Clubs,136
+2017-08,Lacrosse,33
+2017-08,Men's Footwear,678
+2017-08,Men's Golf Clubs,73
+2017-08,Shop By Sport,934
+2017-08,Soccer,59
+2017-08,Strength Training,22
+2017-08,Trade-In,25
+2017-08,Water Sports,516
+2017-08,Women's Apparel,1926
+2017-08,Women's Golf Clubs,130
+2017-09,As Seen on  TV!,13
+2017-09,Baseball & Softball,5
+2017-09,Basketball,59
+2017-09,Boxing & MMA,47
+2017-09,Camping & Hiking,436
+2017-09,Cardio Equipment,1097
+2017-09,Cleats,2108
+2017-09,Fishing,566
+2017-09,Fitness Accessories,7
+2017-09,Golf Apparel,7
+2017-09,Golf Gloves,69
+2017-09,Golf Shoes,37
+2017-09,Hockey,27
+2017-09,Hunting & Shooting,15
+2017-09,Indoor/Outdoor Games,1609
+2017-09,Kids' Golf Clubs,130
+2017-09,Lacrosse,16
+2017-09,Men's Footwear,662
+2017-09,Men's Golf Clubs,43
+2017-09,Shop By Sport,994
+2017-09,Soccer,13
+2017-09,Strength Training,42
+2017-09,Trade-In,4
+2017-09,Water Sports,512
+2017-09,Women's Apparel,1969
+2017-09,Women's Golf Clubs,15
+2017-10,Baby ,82
+2017-10,Basketball,8
+2017-10,Books ,308
+2017-10,CDs ,133
+2017-10,Cameras ,575
+2017-10,Camping & Hiking,15
+2017-10,Cardio Equipment,64
+2017-10,Children's Clothing,522
+2017-10,Cleats,120
+2017-10,Computers,350
+2017-10,Consumer Electronics,49
+2017-10,Fishing,17
+2017-10,Fitness Accessories,3
+2017-10,Indoor/Outdoor Games,68
+2017-10,Kids' Golf Clubs,7
+2017-10,Men's Footwear,32
+2017-10,Shop By Sport,25
+2017-10,Strength Training,9
+2017-10,Water Sports,25
+2017-10,Women's Apparel,78
+2017-11,Consumer Electronics,236
+2017-11,Crafts,231
+2017-11,DVDs,367
+2017-11,Garden,388
+2017-11,Health and Beauty,239
+2017-11,Men's Clothing,177
+2017-11,Music,290
+2017-11,Pet Supplies,127
+2017-12,Baby ,125
+2017-12,Books ,97
+2017-12,CDs ,138
+2017-12,Cameras ,17
+2017-12,Children's Clothing,130
+2017-12,Computers,92
+2017-12,Consumer Electronics,146
+2017-12,Crafts,253
+2017-12,DVDs,109
+2017-12,Pet Supplies,119
+2017-12,Sporting Goods,145
+2017-12,Toys,253
+2017-12,Video Games,228
+2017-12,Women's Clothing,272
+2018-01,DVDs,7
+2018-01,Garden,96
+2018-01,Health and Beauty,123
+2018-01,Men's Clothing,31
+2018-01,Music,144
+2018-01,Pet Supplies,246
+2018-01,Sporting Goods,212
+2018-01,Toys,276
+2018-01,Video Games,610
+2018-01,Women's Clothing,378
