@@ -47,6 +47,16 @@ STANDARD_FIELDS = {
         "description": "Shipping, dispatch, or delivery date",
         "keywords": ["shipping date", "ship date", "delivery date", "dispatch"],
     },
+    "scheduled_delivery_date": {
+    "required": False,
+    "description": "Scheduled or promised delivery date",
+    "keywords": [
+        "scheduled delivery date",
+        "promised delivery date",
+        "planned delivery date",
+        "scheduled date",
+        "expected delivery date",],
+    },
     "delivery_status": {
         "required": False,
         "description": "Delivery status",
@@ -292,6 +302,14 @@ def standardize_uploaded_orders(raw_df, mapping):
     else:
         orders["shipping_date"] = pd.NaT
 
+    if mapping.get("scheduled_delivery_date") != "Not available":
+        orders["scheduled_delivery_date"] = pd.to_datetime(
+            raw_df[mapping["scheduled_delivery_date"]],
+            errors="coerce",
+        )
+    else:
+        orders["scheduled_delivery_date"] = pd.NaT
+
     if mapping.get("actual_shipping_days") != "Not available":
         orders["actual_shipping_days"] = safe_numeric(
             raw_df[mapping["actual_shipping_days"]],
@@ -311,8 +329,20 @@ def standardize_uploaded_orders(raw_df, mapping):
     missing_actual_days = orders["actual_shipping_days"].isna()
 
     if orders["shipping_date"].notna().any():
-        calculated_days = (orders["shipping_date"] - orders["order_date"]).dt.days
-        orders.loc[missing_actual_days, "actual_shipping_days"] = calculated_days
+        calculated_actual_days = (
+            orders["shipping_date"] - orders["order_date"]
+        ).dt.days
+
+        orders.loc[missing_actual_days, "actual_shipping_days"] = calculated_actual_days
+
+    missing_scheduled_days = orders["scheduled_shipping_days"].isna()
+
+    if orders["scheduled_delivery_date"].notna().any():
+        calculated_scheduled_days = (
+            orders["scheduled_delivery_date"] - orders["order_date"]
+        ).dt.days
+
+        orders.loc[missing_scheduled_days, "scheduled_shipping_days"] = calculated_scheduled_days
 
     orders["actual_shipping_days"] = orders["actual_shipping_days"].fillna(0)
 
@@ -320,9 +350,23 @@ def standardize_uploaded_orders(raw_df, mapping):
         orders["actual_shipping_days"]
     )
 
-    orders["delay_days"] = (
+    date_based_delay = (
+        orders["shipping_date"] - orders["scheduled_delivery_date"]
+    ).dt.days
+
+    numeric_based_delay = (
         orders["actual_shipping_days"] - orders["scheduled_shipping_days"]
-    ).clip(lower=0)
+    )
+
+    orders["delay_days"] = numeric_based_delay
+
+    has_date_based_delay = date_based_delay.notna()
+
+    orders.loc[has_date_based_delay, "delay_days"] = date_based_delay.loc[
+        has_date_based_delay
+    ]
+
+    orders["delay_days"] = orders["delay_days"].fillna(0).clip(lower=0)
 
     status_lower = orders["delivery_status"].astype(str).str.lower()
     status_late = status_lower.str.contains("late|delay|delayed", regex=True)
