@@ -118,6 +118,101 @@ The current version includes:
 - SQLite
 - scikit-learn
 
+## How to Run the Project
+
+### Quick Start for Windows
+
+The easiest way to run the project on Windows is to double-click:
+
+```text
+run_dashboard.bat
+```
+
+This script automatically:
+
+- creates the virtual environment if it does not exist,
+- installs the required Python packages,
+- processes the default dataset if needed,
+- starts the Streamlit dashboard.
+
+After the dashboard opens, users can either use the default DataCo dataset or upload a new supply chain dataset from the **Data Source Manager** on the Overview page.
+
+---
+
+### Manual Setup
+
+If you prefer to run the project manually, follow the steps below.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/dolunayunlu/supply-chain-visibility-risk-dashboard.git
+```
+
+### 2. Go to the project folder
+
+```bash
+cd supply-chain-visibility-risk-dashboard
+```
+
+### 3. Create and activate a virtual environment
+
+```bash
+python -m venv venv
+```
+
+For Windows PowerShell:
+
+```bash
+.\venv\Scripts\Activate.ps1
+```
+
+If PowerShell blocks script execution, run:
+
+```bash
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+Then activate the virtual environment again:
+
+```bash
+.\venv\Scripts\Activate.ps1
+```
+
+### 4. Install required packages
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Process the default dataset
+
+```bash
+python process_data.py
+```
+
+This step creates the cleaned CSV files and SQLite database used by the default dashboard.
+
+### 6. Run the dashboard platform
+
+```bash
+streamlit run Overview.py
+```
+
+### 7. Use the default dataset or upload a new dataset
+
+When the dashboard opens, the system uses the default DataCo supply chain dataset.
+
+To analyze a new company dataset:
+
+1. Open the **Data Source Manager** on the Overview page.
+2. Upload a CSV or Excel supply chain dataset.
+3. Map the uploaded dataset columns to the standard schema.
+4. Click **Use This Dataset Across Dashboard**.
+5. The dashboard pages will update based on the uploaded dataset.
+
+The uploaded dataset is used during the active Streamlit session. Users can return to the default DataCo dataset from the Data Source Manager.
+
 ## Project Structure
 
 supply-chain-visibility-risk-dashboard/
