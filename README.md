@@ -1,4 +1,4 @@
-# Supply Chain Visibility and Risk Assessment Platform
+﻿# Supply Chain Visibility and Risk Assessment Platform
 
 This project is an interactive supply chain visibility and risk assessment platform. It allows users to work with the default DataCo supply chain dataset or upload their own supply chain dataset through a column mapping and standardization module.
 
@@ -84,6 +84,34 @@ The current version includes:
 - MAE and MAPE forecast evaluation
 - Processed CSV tables
 - SQLite database generation
+
+## Risk Scoring Logic
+
+The supply chain risk module uses rule-based and interpretable risk scoring. The overall risk score is calculated from four main components: late delivery rate, inventory risk, delay risk, and demand volatility risk.
+
+Inventory risk is calculated as a weighted inventory status ratio. Critical inventory items are treated as full-risk items, while warning inventory items are treated as half-risk items:
+
+```text
+Inventory Risk = ((Critical Items x 1.0) + (Warning Items x 0.5)) / Total Inventory Items x 100
+```
+
+Delay risk is calculated by normalizing the average delay days. In this prototype, an average delay of three days or more is treated as the maximum delay risk:
+
+```text
+Delay Risk = min((Average Delay Days / 3) x 100, 100)
+```
+
+The overall supply chain risk score is calculated as:
+
+```text
+Overall Risk Score =
+0.35 x Late Delivery Rate
++ 0.25 x Inventory Risk
++ 0.20 x Delay Risk
++ 0.20 x Demand Volatility Risk
+```
+
+Regional and category-level risk tables use related operational indicators such as late delivery rate, delay days, profit risk, and inventory condition. These scores are intended to support decision-making and are not machine-learning-based predictions.
 
 ## Future Improvements
 
@@ -217,52 +245,52 @@ The uploaded dataset is used during the active Streamlit session. Users can retu
 
 ```text
 supply-chain-visibility-risk-dashboard/
-│
-├── Overview.py
-├── process_data.py
-├── requirements.txt
-├── run_dashboard.bat
-├── README.md
-│
-├── data/
-│   ├── raw/
-│   │   ├── DataCoSupplyChainDataset.csv
-│   │   └── DescriptionDataCoSupplyChain.csv
-│   │
-│   └── processed/
-│       ├── orders_clean.csv
-│       ├── products_clean.csv
-│       ├── shipments_clean.csv
-│       ├── inventory_generated.csv
-│       ├── demand_clean.csv
-│       ├── risk_scores.csv
-│       └── supply_chain.db
-│
-├── pages/
-│   ├── 1_Regional_Performance.py
-│   ├── 2_Inventory_Control.py
-│   ├── 3_Shipment_Performance.py
-│   ├── 4_Supply_Chain_Risk.py
-│   └── 5_Demand_Forecast.py
-│
-├── utils/
-│   ├── __init__.py
-│   └── data_adapter.py
-│
-├── docs/
-│   ├── er_diagram.png
-│   ├── system_architecture.png
-│   ├── use_case_diagram.png
-│   └── graduation_thesis_report.docx
-│
-└── screenshots/
-    ├── 01_data_source_manager.png
-    ├── 02_overview_uploaded_dataset.png
-    ├── 03_regional_performance_uploaded.png
-    ├── 04_inventory_control_uploaded.png
-    ├── 05_shipment_performance_uploaded.png
-    ├── 06_supply_chain_risk_uploaded.png
-    └── 07_demand_forecast_uploaded.png
+â”‚
+â”œâ”€â”€ Overview.py
+â”œâ”€â”€ process_data.py
+â”œâ”€â”€ requirements.txt
+â”œâ”€â”€ run_dashboard.bat
+â”œâ”€â”€ README.md
+â”‚
+â”œâ”€â”€ data/
+â”‚   â”œâ”€â”€ raw/
+â”‚   â”‚   â”œâ”€â”€ DataCoSupplyChainDataset.csv
+â”‚   â”‚   â””â”€â”€ DescriptionDataCoSupplyChain.csv
+â”‚   â”‚
+â”‚   â””â”€â”€ processed/
+â”‚       â”œâ”€â”€ orders_clean.csv
+â”‚       â”œâ”€â”€ products_clean.csv
+â”‚       â”œâ”€â”€ shipments_clean.csv
+â”‚       â”œâ”€â”€ inventory_generated.csv
+â”‚       â”œâ”€â”€ demand_clean.csv
+â”‚       â”œâ”€â”€ risk_scores.csv
+â”‚       â””â”€â”€ supply_chain.db
+â”‚
+â”œâ”€â”€ pages/
+â”‚   â”œâ”€â”€ 1_Regional_Performance.py
+â”‚   â”œâ”€â”€ 2_Inventory_Control.py
+â”‚   â”œâ”€â”€ 3_Shipment_Performance.py
+â”‚   â”œâ”€â”€ 4_Supply_Chain_Risk.py
+â”‚   â””â”€â”€ 5_Demand_Forecast.py
+â”‚
+â”œâ”€â”€ utils/
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â””â”€â”€ data_adapter.py
+â”‚
+â”œâ”€â”€ docs/
+â”‚   â”œâ”€â”€ er_diagram.png
+â”‚   â”œâ”€â”€ system_architecture.png
+â”‚   â”œâ”€â”€ use_case_diagram.png
+â”‚   â””â”€â”€ graduation_thesis_report.docx
+â”‚
+â””â”€â”€ screenshots/
+    â”œâ”€â”€ 01_data_source_manager.png
+    â”œâ”€â”€ 02_overview_uploaded_dataset.png
+    â”œâ”€â”€ 03_regional_performance_uploaded.png
+    â”œâ”€â”€ 04_inventory_control_uploaded.png
+    â”œâ”€â”€ 05_shipment_performance_uploaded.png
+    â”œâ”€â”€ 06_supply_chain_risk_uploaded.png
+    â””â”€â”€ 07_demand_forecast_uploaded.png
 ```
 
 ## Current Status
