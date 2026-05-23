@@ -470,14 +470,6 @@ def create_inventory_table(products, orders):
     inventory["reorder_point"] * np.random.uniform(0.6, 1.8, size=len(inventory))
     ).round().astype(int)
 
-    if len(inventory) > 0:
-        inventory.loc[inventory.index[::5], "current_stock"] = (
-            inventory.loc[inventory.index[::5], "reorder_point"] * 0.7
-        ).round().astype(int)
-
-        inventory.loc[inventory.index[::7], "current_stock"] = (
-            inventory.loc[inventory.index[::7], "reorder_point"] * 1.05
-        ).round().astype(int)
 
     inventory["days_of_supply"] = (
         inventory["current_stock"] / inventory["average_daily_demand"]
@@ -526,7 +518,7 @@ def classify_risk(score):
         return "High"
 
 
-def create_risk_table(orders):
+def create_risk_table(orders, inventory):
     """Create region-level risk score table."""
     risk = (
         orders.groupby(["market", "order_region"])
@@ -554,14 +546,59 @@ def create_risk_table(orders):
             risk["avg_delay_days"] / max_delay * 100
         ).round(2)
 
+    inventory_risk_map = {
+        "Critical": 100,
+        "Warning": 60,
+        "Healthy": 20,
+    }
+
+    inventory_risk_score = (
+        inventory["inventory_status"]
+        .map(inventory_risk_map)
+        .fillna(60)
+        .mean()
+    )
+
+    risk["inventory_risk_score"] = round(inventory_risk_score, 2)
+
+    monthly_demand = (
+        orders.groupby(["market", "order_region", "year_month"])["order_quantity"]
+        .sum()
+        .reset_index()
+    )
+
+    demand_volatility = (
+        monthly_demand.groupby(["market", "order_region"])["order_quantity"]
+        .agg(["mean", "std"])
+        .reset_index()
+    )
+
+    demand_volatility["std"] = demand_volatility["std"].fillna(0)
+    demand_volatility["demand_volatility_risk_score"] = (
+        demand_volatility["std"] / demand_volatility["mean"].replace(0, pd.NA) * 100
+    ).fillna(0).clip(upper=100).round(2)
+
+    risk = risk.merge(
+        demand_volatility[
+            ["market", "order_region", "demand_volatility_risk_score"]
+        ],
+        on=["market", "order_region"],
+        how="left",
+    )
+
+    risk["demand_volatility_risk_score"] = (
+        risk["demand_volatility_risk_score"].fillna(0)
+    )
+
     risk["profit_risk_score"] = risk["total_profit"].apply(
         lambda value: 80 if value < 0 else 20
     )
 
     risk["overall_risk_score"] = (
-        0.50 * risk["late_delivery_risk_score"]
-        + 0.30 * risk["delay_risk_score"]
-        + 0.20 * risk["profit_risk_score"]
+        0.35 * risk["late_delivery_risk_score"]
+        + 0.25 * risk["inventory_risk_score"]
+        + 0.20 * risk["delay_risk_score"]
+        + 0.20 * risk["demand_volatility_risk_score"]
     ).round(2)
 
     risk["risk_level"] = risk["overall_risk_score"].apply(classify_risk)
@@ -580,7 +617,7 @@ def build_dashboard_tables_from_uploaded_data(raw_df, mapping, source_name):
     shipments = create_shipments_table(orders)
     inventory = create_inventory_table(products, orders)
     demand = create_demand_table(orders)
-    risk = create_risk_table(orders)
+    risk = create_risk_table(orders, inventory)
 
     return {
         "orders": orders,

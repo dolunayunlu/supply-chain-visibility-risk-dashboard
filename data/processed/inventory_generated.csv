@@ -4,116 +4,116 @@ product_id,product_name,category_name,current_stock,reorder_point,safety_stock,a
 627,Under Armour Girls' Toddler Spine Surge Runni,Shop By Sport,1799,1217,609,86.94520547945206,20.7,Warning
 502,Nike Men's Dri-FIT Victory Golf Polo,Women's Apparel,3184,2415,1207,172.48219178082192,18.5,Warning
 278,Under Armour Men's Compression EV SL Slide,Electronics,24,31,16,2.2273972602739724,10.8,Critical
-249,Under Armour Women's Micro G Skulpt Running S,Boxing & MMA,22,32,16,2.3205479452054796,9.5,Critical
+249,Under Armour Women's Micro G Skulpt Running S,Boxing & MMA,25,32,16,2.3205479452054796,10.8,Critical
 191,Nike Men's Free 5.0+ Running Shoe,Cardio Equipment,942,1407,703,100.4931506849315,9.4,Critical
-917,Glove It Women's Mod Oval 3-Zip Carry All Gol,Trade-In,38,36,18,2.547945205479452,14.9,Warning
+917,Glove It Women's Mod Oval 3-Zip Carry All Gol,Trade-In,59,36,18,2.547945205479452,23.2,Healthy
 828,Bridgestone e6 Straight Distance NFL San Dieg,Electronics,46,35,17,2.4821917808219176,18.5,Warning
 642,Columbia Men's PFG Anchor Tough T-Shirt,Shop By Sport,52,36,18,2.5424657534246577,20.5,Warning
-818,Titleist Pro V1x Golf Balls,Electronics,23,33,17,2.3643835616438356,9.7,Critical
+818,Titleist Pro V1x Golf Balls,Electronics,21,33,17,2.3643835616438356,8.9,Critical
 825,Bridgestone e6 Straight Distance NFL Tennesse,Electronics,55,31,15,2.2054794520547945,24.9,Healthy
 306,Polar FT4 Heart Rate Monitor,Kids' Golf Clubs,22,14,7,1.0,22.0,Healthy
 977,ENO Atlas Hammock Straps,Hunting & Shooting,32,38,19,2.734246575342466,11.7,Critical
-44,adidas Men's F10 Messi TRX FG Soccer Cleat,Baseball & Softball,38,36,18,2.5726027397260274,14.8,Warning
-251,Brooks Women's Ghost 6 Running Shoe,Boxing & MMA,10,14,7,1.0,10.0,Critical
+44,adidas Men's F10 Messi TRX FG Soccer Cleat,Baseball & Softball,29,36,18,2.5726027397260274,11.3,Critical
+251,Brooks Women's Ghost 6 Running Shoe,Boxing & MMA,11,14,7,1.0,11.0,Critical
 403,Nike Men's CJ Elite 2 TD Football Cleat,Men's Footwear,823,853,427,60.94794520547945,13.5,Critical
 957,Diamondback Women's Serene Classic Comfort Bi,Camping & Hiking,648,527,263,37.61369863013699,17.2,Warning
 1352,Industrial consumer electronics,Consumer Electronics,19,17,8,1.180821917808219,16.1,Warning
 1349,Web Camera,Cameras ,22,23,11,1.621917808219178,13.6,Critical
-1351,Dell Laptop,Computers,12,17,8,1.210958904109589,9.9,Critical
-60,SOLE E25 Elliptical,Basketball,15,14,7,1.0,15.0,Warning
+1351,Dell Laptop,Computers,23,17,8,1.210958904109589,19.0,Warning
+60,SOLE E25 Elliptical,Basketball,11,14,7,1.0,11.0,Critical
 24,Elevation Training Mask 2.0,Soccer,13,14,7,1.0,13.0,Critical
 567,adidas Men's Germany Black Crest Away Tee,Girls' Apparel,34,33,16,2.3534246575342466,14.4,Warning
 893,Team Golf Pittsburgh Steelers Putter Grip,Accessories,39,34,17,2.43013698630137,16.0,Warning
-924,Glove It Urban Brick Golf Towel,Trade-In,24,34,17,2.4246575342465753,9.9,Critical
+924,Glove It Urban Brick Golf Towel,Trade-In,52,34,17,2.4246575342465753,21.4,Healthy
 905,Team Golf Texas Longhorns Putter Grip,Accessories,29,34,17,2.452054794520548,11.8,Critical
 564,Nike Men's Deutschland Weltmeister Winners Bl,Girls' Apparel,43,35,17,2.484931506849315,17.3,Warning
-885,Team Golf St. Louis Cardinals Putter Grip,Accessories,39,37,18,2.6246575342465754,14.9,Warning
+885,Team Golf St. Louis Cardinals Putter Grip,Accessories,49,37,18,2.6246575342465754,18.7,Warning
 1363,Summer dresses,Women's Clothing,16,25,12,1.7808219178082192,9.0,Critical
-1353,Porcelain crafts,Crafts,13,19,9,1.326027397260274,9.8,Critical
+1353,Porcelain crafts,Crafts,25,19,9,1.326027397260274,18.9,Warning
 1357,Men's gala suit,Men's Clothing,11,14,7,1.0,11.0,Critical
 906,Team Golf Tennessee Volunteers Putter Grip,Accessories,24,35,18,2.506849315068493,9.6,Critical
 886,Team Golf San Francisco Giants Putter Grip,Accessories,57,33,17,2.3863013698630136,23.9,Healthy
 926,Glove It Imperial Golf Towel,Trade-In,63,36,18,2.547945205479452,24.7,Healthy
-116,Nike Men's Comfort 2 Slide,Tennis & Racquet,40,38,19,2.7150684931506848,14.7,Warning
+116,Nike Men's Comfort 2 Slide,Tennis & Racquet,60,38,19,2.7150684931506848,22.1,Healthy
 235,Under Armour Hustle Storm Medium Duffle Bag,Fitness Accessories,31,32,16,2.317808219178082,13.4,Critical
 273,Under Armour Kids' Mercenary Slide,Electronics,22,30,15,2.1780821917808217,10.1,Critical
 282,Under Armour Women's Ignite PIP VI Slide,Electronics,47,33,16,2.3232876712328765,20.2,Warning
 359,Nike Men's Free TR 5.0 TB Training Shoe,As Seen on  TV!,16,14,7,1.0,16.0,Warning
-565,adidas Youth Germany Black/Red Away Match Soc,Girls' Apparel,26,37,19,2.654794520547945,9.8,Critical
+565,adidas Youth Germany Black/Red Away Match Soc,Girls' Apparel,28,37,19,2.654794520547945,10.5,Critical
 572,TYR Boys' Team Digi Jammer,Girls' Apparel,41,34,17,2.410958904109589,17.0,Warning
-804,Glove It Women's Imperial Golf Glove,Golf Balls,38,36,18,2.578082191780822,14.7,Warning
+804,Glove It Women's Imperial Golf Glove,Golf Balls,23,36,18,2.578082191780822,8.9,Critical
 822,Titleist Pro V1x High Numbers Golf Balls,Electronics,52,31,15,2.191780821917808,23.7,Healthy
 835,Bridgestone e6 Straight Distance NFL Carolina,Electronics,33,36,18,2.5424657534246577,13.0,Critical
-276,Under Armour Women's Ignite Slide,Electronics,24,35,18,2.5178082191780824,9.5,Critical
+276,Under Armour Women's Ignite Slide,Electronics,49,35,18,2.5178082191780824,19.5,Warning
 823,Titleist Pro V1x High Numbers Personalized Go,Electronics,34,35,17,2.4876712328767123,13.7,Critical
 203,GoPro HERO3+ Black Edition Camera,Strength Training,17,14,7,1.0,17.0,Warning
 364,Total Gym 1400,Cleats,18,14,7,1.0,18.0,Warning
-1350,Children's heaters,Children's Clothing,26,25,13,1.7863013698630137,14.6,Warning
-897,Team Golf New England Patriots Putter Grip,Accessories,22,32,16,2.254794520547945,9.8,Critical
+1350,Children's heaters,Children's Clothing,21,25,13,1.7863013698630137,11.8,Critical
+897,Team Golf New England Patriots Putter Grip,Accessories,56,32,16,2.254794520547945,24.8,Healthy
 37,adidas Kids' F5 Messi FG Soccer Cleat,Baseball & Softball,46,30,15,2.1397260273972605,21.5,Healthy
 172,Nike Women's Tempo Shorts,Cardio Equipment,60,35,17,2.484931506849315,24.1,Healthy
 810,Glove It Women's Mod Oval Golf Glove,Golf Balls,52,31,15,2.197260273972603,23.7,Healthy
 821,Titleist Pro V1 High Numbers Personalized Gol,Electronics,43,33,16,2.3315068493150686,18.4,Warning
-93,Under Armour Men's Tech II T-Shirt,Lacrosse,22,32,16,2.287671232876712,9.6,Critical
-1347,Baby sweater,Baby ,15,14,7,1.0,15.0,Warning
+93,Under Armour Men's Tech II T-Shirt,Lacrosse,55,32,16,2.287671232876712,24.0,Healthy
+1347,Baby sweater,Baby ,10,14,7,1.0,10.0,Critical
 305,Mio ALPHA Heart Rate Monitor/Sport Watch,Kids' Golf Clubs,12,14,7,1.0,12.0,Critical
 1004,Field & Stream Sportsman 16 Gun Fire Safe,Fishing,435,665,332,47.465753424657535,9.2,Critical
 1346,Sports Books ,Books ,16,16,8,1.1095890410958904,14.4,Warning
-58,Diamondback Boys' Insight 24 Performance Hybr,Basketball,10,14,7,1.0,10.0,Critical
+58,Diamondback Boys' Insight 24 Performance Hybr,Basketball,15,14,7,1.0,15.0,Warning
 311,Polar Loop Activity Tracker,Kids' Golf Clubs,13,14,7,1.0,13.0,Critical
 303,Garmin Forerunner 910XT GPS Watch,Kids' Golf Clubs,22,14,7,1.0,22.0,Healthy
 1354,DVDs ,DVDs,20,19,9,1.3232876712328767,15.1,Warning
 1348,CDs of rock,CDs ,13,14,7,1.0,13.0,Critical
-78,Nike Kids' Grade School KD VI Basketball Shoe,Lacrosse,10,14,7,1.0,10.0,Critical
+78,Nike Kids' Grade School KD VI Basketball Shoe,Lacrosse,18,14,7,1.0,18.0,Warning
 258,Nike Women's Free 5.0 TR FIT PRT 4 Training S,Boxing & MMA,11,14,7,1.0,11.0,Critical
 797,Hirzl Women's Soffft Flex Golf Glove,Golf Balls,53,34,17,2.4356164383561643,21.8,Healthy
 981,The North Face Women's Recon Backpack,Hunting & Shooting,10,14,7,1.0,10.0,Critical
 1355,Lawn mower,Garden,34,19,9,1.326027397260274,25.6,Healthy
-135,Nike Dri-FIT Crew Sock 6 Pack,Hockey,36,34,17,2.419178082191781,14.9,Warning
+135,Nike Dri-FIT Crew Sock 6 Pack,Hockey,52,34,17,2.419178082191781,21.5,Healthy
 134,Nike Women's Legend V-Neck T-Shirt,Hockey,26,31,15,2.1945205479452055,11.8,Critical
 845,Garmin Approach S4 Golf GPS Watch,Kids' Golf Clubs,8,14,7,1.0,8.0,Critical
 982,insta-bed Neverflat Air Mattress,Hunting & Shooting,22,14,7,1.0,22.0,Healthy
 625,Nike Men's Kobe IX Elite Low Basketball Shoe,Shop By Sport,20,14,7,1.0,20.0,Warning
-1359,Adult dog supplies,Pet Supplies,13,19,9,1.347945205479452,9.6,Critical
+1359,Adult dog supplies,Pet Supplies,28,19,9,1.347945205479452,20.8,Healthy
 1356,First aid kit,Health and Beauty,21,14,7,1.0,21.0,Healthy
-607,Garmin Approach S3 Golf GPS Watch,Trade-In,15,14,7,1.0,15.0,Warning
+607,Garmin Approach S3 Golf GPS Watch,Trade-In,10,14,7,1.0,10.0,Critical
 1358,Rock music,Music,18,17,8,1.189041095890411,15.1,Warning
 1362,Fighting video games,Video Games,24,32,16,2.2958904109589042,10.5,Critical
-295,Fitbit The One Wireless Activity & Sleep Trac,Kids' Golf Clubs,10,14,7,1.0,10.0,Critical
+295,Fitbit The One Wireless Activity & Sleep Trac,Kids' Golf Clubs,23,14,7,1.0,23.0,Healthy
 127,Stiga Master Series ST3100 Competition Indoor,Hockey,19,14,7,1.0,19.0,Warning
 61,Diamondback Girls' Clarity 24 Hybrid Bike 201,Basketball,14,14,7,1.0,14.0,Warning
 35,adidas Brazuca 2014 Official Match Ball,Baseball & Softball,9,14,7,1.0,9.0,Critical
-858,GolfBuddy VT3 GPS Watch,Kids' Golf Clubs,15,14,7,1.0,15.0,Warning
-860,Bushnell Pro X7 Jolt Slope Rangefinder,Kids' Golf Clubs,10,14,7,1.0,10.0,Critical
+858,GolfBuddy VT3 GPS Watch,Kids' Golf Clubs,14,14,7,1.0,14.0,Warning
+860,Bushnell Pro X7 Jolt Slope Rangefinder,Kids' Golf Clubs,14,14,7,1.0,14.0,Warning
 216,Yakima DoubleDown Ace Hitch Mount 4-Bike Rack,Strength Training,21,14,7,1.0,21.0,Healthy
 19,Nike Men's Fingertrap Max Training Shoe,Soccer,19,14,7,1.0,19.0,Warning
 226,Bowflex SelectTech 1090 Dumbbells,Fitness Accessories,23,14,7,1.0,23.0,Healthy
 208,SOLE E35 Elliptical,Strength Training,16,14,7,1.0,16.0,Warning
-793,Hirzl Women's Hybrid Golf Glove,Golf Balls,24,34,17,2.4328767123287673,9.9,Critical
-792,Hirzl Men's Hybrid Golf Glove,Golf Balls,35,33,17,2.367123287671233,14.8,Warning
+793,Hirzl Women's Hybrid Golf Glove,Golf Balls,25,34,17,2.4328767123287673,10.3,Critical
+792,Hirzl Men's Hybrid Golf Glove,Golf Balls,48,33,17,2.367123287671233,20.3,Warning
 786,TaylorMade 2014 Purelite Stand Bag,Golf Gloves,21,14,7,1.0,21.0,Healthy
 778,Bag Boy Beverage Holder,Golf Gloves,41,32,16,2.315068493150685,17.7,Warning
 777,Bag Boy M330 Push Cart,Golf Gloves,21,14,7,1.0,21.0,Healthy
-775,Clicgear 8.0 Shoe Brush,Golf Gloves,24,34,17,2.4328767123287673,9.9,Critical
+775,Clicgear 8.0 Shoe Brush,Golf Gloves,41,34,17,2.4328767123287673,16.9,Warning
 773,Titleist Small Wheeled Travel Cover,Golf Gloves,17,14,7,1.0,17.0,Warning
 771,Clicgear Rovic Cooler Bag,Golf Gloves,37,33,17,2.3753424657534246,15.6,Warning
-768,Titleist Club Glove Travel Cover,Golf Gloves,15,14,7,1.0,15.0,Warning
+768,Titleist Club Glove Travel Cover,Golf Gloves,9,14,7,1.0,9.0,Critical
 743,Ogio Race Golf Shoes,Golf Bags & Carts,10,14,7,1.0,10.0,Critical
-730,LIJA Women's Argyle Golf Polo,Golf Shoes,10,14,7,1.0,10.0,Critical
+730,LIJA Women's Argyle Golf Polo,Golf Shoes,9,14,7,1.0,9.0,Critical
 728,LIJA Women's Eyelet Sleeveless Golf Polo,Golf Shoes,49,36,18,2.591780821917808,18.9,Warning
 725,LIJA Women's Button Golf Dress,Golf Shoes,14,14,7,1.0,14.0,Warning
 724,LIJA Women's Mid-Length Panel Golf Shorts,Golf Shoes,17,14,7,1.0,17.0,Warning
 715,TaylorMade Women's RBZ SL Rescue,Golf Apparel,24,14,7,1.0,24.0,Healthy
-705,Cleveland Golf Women's 588 RTX CB Satin Chrom,Golf Apparel,15,14,7,1.0,15.0,Warning
+705,Cleveland Golf Women's 588 RTX CB Satin Chrom,Golf Apparel,13,14,7,1.0,13.0,Critical
 703,Top Flite Women's 2014 XL Hybrid,Golf Apparel,37,34,17,2.43013698630137,15.2,Warning
 691,MDGolf Pittsburgh Penguins Putter,Women's Golf Clubs,21,14,7,1.0,21.0,Healthy
 677,TaylorMade White Smoke IN-12 Putter,Women's Golf Clubs,12,14,7,1.0,12.0,Critical
 671,Cleveland Golf Collegiate My Custom Wedge 588,Women's Golf Clubs,10,14,7,1.0,10.0,Critical
-666,Merrell Men's All Out Flash Trail Running Sho,Men's Golf Clubs,10,14,7,1.0,10.0,Critical
+666,Merrell Men's All Out Flash Trail Running Sho,Men's Golf Clubs,13,14,7,1.0,13.0,Critical
 652,Merrell Women's Grassbow Sport Waterproof Hik,Men's Golf Clubs,11,14,7,1.0,11.0,Critical
-647,Merrell Women's Siren Mid Waterproof Hiking B,Men's Golf Clubs,15,14,7,1.0,15.0,Warning
+647,Merrell Women's Siren Mid Waterproof Hiking B,Men's Golf Clubs,24,14,7,1.0,24.0,Healthy
 646,Merrell Women's Grassbow Sport Hiking Shoe,Men's Golf Clubs,22,14,7,1.0,22.0,Healthy
 1361,Toys ,Toys,27,20,10,1.4493150684931506,18.6,Warning
-1073,Pelican Sunstream 100 Kayak,Water Sports,416,595,297,42.465753424657535,9.8,Critical
+1073,Pelican Sunstream 100 Kayak,Water Sports,979,595,297,42.465753424657535,23.1,Healthy
 1059,Pelican Maverick 100X Kayak,Water Sports,22,14,7,1.0,22.0,Healthy
 1014,O'Brien Men's Neoprene Life Vest,Indoor/Outdoor Games,1827,2217,1109,158.36438356164385,11.5,Critical

@@ -170,14 +170,6 @@ def create_inventory_table(products: pd.DataFrame, orders: pd.DataFrame) -> pd.D
         * np.random.uniform(0.6, 1.8, size=len(inventory))
     ).round().astype(int)
 
-    # Make some products intentionally risky for dashboard demonstration.
-    inventory.loc[inventory.index[::5], "current_stock"] = (
-        inventory.loc[inventory.index[::5], "reorder_point"] * 0.7
-    ).round().astype(int)
-
-    inventory.loc[inventory.index[::7], "current_stock"] = (
-        inventory.loc[inventory.index[::7], "reorder_point"] * 1.05
-    ).round().astype(int)
 
     inventory["days_of_supply"] = (
         inventory["current_stock"] / inventory["average_daily_demand"]
@@ -243,21 +235,66 @@ def create_risk_table(orders: pd.DataFrame, inventory: pd.DataFrame) -> pd.DataF
     ).round(2)
 
     max_delay = region_perf["avg_delay_days"].max()
-    if max_delay == 0:
+    if max_delay == 0 or pd.isna(max_delay):
         region_perf["delay_risk_score"] = 0
     else:
         region_perf["delay_risk_score"] = (
             region_perf["avg_delay_days"] / max_delay * 100
         ).round(2)
 
+    inventory_risk_map = {
+        "Critical": 100,
+        "Warning": 60,
+        "Healthy": 20,
+    }
+
+    inventory_risk_score = (
+        inventory["inventory_status"]
+        .map(inventory_risk_map)
+        .fillna(60)
+        .mean()
+    )
+
+    region_perf["inventory_risk_score"] = round(inventory_risk_score, 2)
+
+    monthly_demand = (
+        orders.groupby(["market", "order_region", "year_month"])["order_quantity"]
+        .sum()
+        .reset_index()
+    )
+
+    demand_volatility = (
+        monthly_demand.groupby(["market", "order_region"])["order_quantity"]
+        .agg(["mean", "std"])
+        .reset_index()
+    )
+
+    demand_volatility["std"] = demand_volatility["std"].fillna(0)
+    demand_volatility["demand_volatility_risk_score"] = (
+        demand_volatility["std"] / demand_volatility["mean"].replace(0, pd.NA) * 100
+    ).fillna(0).clip(upper=100).round(2)
+
+    region_perf = region_perf.merge(
+        demand_volatility[
+            ["market", "order_region", "demand_volatility_risk_score"]
+        ],
+        on=["market", "order_region"],
+        how="left",
+    )
+
+    region_perf["demand_volatility_risk_score"] = (
+        region_perf["demand_volatility_risk_score"].fillna(0)
+    )
+
     region_perf["profit_risk_score"] = region_perf["total_profit"].apply(
         lambda x: 80 if x < 0 else 20
     )
 
     region_perf["overall_risk_score"] = (
-        0.50 * region_perf["late_delivery_risk_score"]
-        + 0.30 * region_perf["delay_risk_score"]
-        + 0.20 * region_perf["profit_risk_score"]
+        0.35 * region_perf["late_delivery_risk_score"]
+        + 0.25 * region_perf["inventory_risk_score"]
+        + 0.20 * region_perf["delay_risk_score"]
+        + 0.20 * region_perf["demand_volatility_risk_score"]
     ).round(2)
 
     def classify_risk(score):
