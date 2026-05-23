@@ -114,9 +114,9 @@ def apply_filters(
 def classify_risk(score: float) -> str:
     """Classify numeric risk score."""
 
-    if score < 30:
+    if score < 40:
         return "Low"
-    if score < 60:
+    if score < 70:
         return "Medium"
     return "High"
 
@@ -249,7 +249,7 @@ def calculate_risk_summary(
     }
 
 
-def calculate_region_risk(orders: pd.DataFrame) -> pd.DataFrame:
+def calculate_region_risk(orders: pd.DataFrame, inventory: pd.DataFrame) -> pd.DataFrame:
     """Calculate region-level risk from filtered order data."""
 
     if orders.empty:
@@ -281,18 +281,59 @@ def calculate_region_risk(orders: pd.DataFrame) -> pd.DataFrame:
             region_risk["avg_delay_days"] / max_delay * 100
         ).round(2)
 
-    region_risk["profit_margin_pct"] = (
-        region_risk["total_profit"] / region_risk["total_sales"] * 100
-    ).round(2)
+    status_counts = inventory["inventory_status"].value_counts()
+    total_inventory_items = len(inventory)
 
-    region_risk["profit_risk_score"] = region_risk["profit_margin_pct"].apply(
-        lambda margin: 80 if margin < 0 else 20
+    if total_inventory_items == 0:
+        inventory_risk_score = 0
+    else:
+        inventory_risk_score = (
+            (
+                status_counts.get("Critical", 0) * 1.0
+                + status_counts.get("Warning", 0) * 0.5
+            )
+            / total_inventory_items
+            * 100
+        )
+
+    region_risk["inventory_risk_score"] = round(inventory_risk_score, 2)
+
+    monthly_demand = (
+        orders.groupby(["market", "order_region", "year_month"])["order_quantity"]
+        .sum()
+        .reset_index()
+    )
+
+    demand_volatility = (
+        monthly_demand.groupby(["market", "order_region"])["order_quantity"]
+        .agg(["mean", "std"])
+        .reset_index()
+    )
+
+    demand_volatility["std"] = demand_volatility["std"].fillna(0)
+    demand_volatility["demand_volatility_risk_score"] = (
+        demand_volatility["std"]
+        / demand_volatility["mean"].replace(0, pd.NA)
+        * 100
+    ).fillna(0).clip(upper=100).round(2)
+
+    region_risk = region_risk.merge(
+        demand_volatility[
+            ["market", "order_region", "demand_volatility_risk_score"]
+        ],
+        on=["market", "order_region"],
+        how="left",
+    )
+
+    region_risk["demand_volatility_risk_score"] = (
+        region_risk["demand_volatility_risk_score"].fillna(0)
     )
 
     region_risk["overall_region_risk_score"] = (
-        0.50 * region_risk["late_delivery_risk_score"]
-        + 0.30 * region_risk["delay_risk_score"]
-        + 0.20 * region_risk["profit_risk_score"]
+        0.35 * region_risk["late_delivery_risk_score"]
+        + 0.25 * region_risk["inventory_risk_score"]
+        + 0.20 * region_risk["delay_risk_score"]
+        + 0.20 * region_risk["demand_volatility_risk_score"]
     ).round(2)
 
     region_risk["risk_level"] = region_risk["overall_region_risk_score"].apply(
@@ -410,9 +451,9 @@ def show_risk_gauge(risk_summary: dict):
                 gauge={
                     "axis": {"range": [0, 100]},
                     "steps": [
-                        {"range": [0, 30], "color": "lightgreen"},
-                        {"range": [30, 60], "color": "khaki"},
-                        {"range": [60, 100], "color": "salmon"},
+                        {"range": [0, 40], "color": "lightgreen"},
+                        {"range": [40, 70], "color": "khaki"},
+                        {"range": [70, 100], "color": "salmon"},
                     ],
                     "threshold": {
                         "line": {"color": "red", "width": 4},
@@ -627,14 +668,17 @@ def show_tables(region_risk: pd.DataFrame, category_risk: pd.DataFrame, inventor
         "market",
         "order_region",
         "total_orders",
-        "total_sales",
-        "total_profit",
+        "late_delivery_rate",
+        "avg_delay_days",
         "late_delivery_risk_score",
         "delay_risk_score",
-        "profit_risk_score",
+        "inventory_risk_score",
+        "demand_volatility_risk_score",
         "overall_region_risk_score",
         "risk_level",
     ]
+
+    region_columns = [col for col in region_columns if col in region_risk.columns]
 
     st.dataframe(
         region_risk[region_columns].head(50),
@@ -739,7 +783,7 @@ def main():
         filtered_demand,
     )
 
-    region_risk = calculate_region_risk(filtered_orders)
+    region_risk = calculate_region_risk(filtered_orders, filtered_inventory)
     category_risk = calculate_category_risk(filtered_orders, filtered_inventory)
 
     if region_risk.empty or category_risk.empty:

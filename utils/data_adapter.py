@@ -546,18 +546,20 @@ def create_risk_table(orders, inventory):
             risk["avg_delay_days"] / max_delay * 100
         ).round(2)
 
-    inventory_risk_map = {
-        "Critical": 100,
-        "Warning": 60,
-        "Healthy": 20,
-    }
+    status_counts = inventory["inventory_status"].value_counts()
+    total_inventory_items = len(inventory)
 
-    inventory_risk_score = (
-        inventory["inventory_status"]
-        .map(inventory_risk_map)
-        .fillna(60)
-        .mean()
-    )
+    if total_inventory_items == 0:
+        inventory_risk_score = 0
+    else:
+        inventory_risk_score = (
+            (
+                status_counts.get("Critical", 0) * 1.0
+                + status_counts.get("Warning", 0) * 0.5
+            )
+            / total_inventory_items
+            * 100
+        )
 
     risk["inventory_risk_score"] = round(inventory_risk_score, 2)
 

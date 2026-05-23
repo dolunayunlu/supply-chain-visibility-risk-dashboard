@@ -27,8 +27,9 @@ def load_data():
 
     orders = dashboard_data["orders"]
     risk = dashboard_data["risk"]
+    inventory = dashboard_data["inventory"]
 
-    return orders, risk
+    return orders, risk, inventory
 
 
 def create_filter_options(series: pd.Series):
@@ -87,7 +88,10 @@ def apply_filters(orders: pd.DataFrame) -> pd.DataFrame:
     return orders
 
 
-def calculate_region_performance(orders: pd.DataFrame) -> pd.DataFrame:
+def calculate_region_performance(
+    orders: pd.DataFrame,
+    inventory: pd.DataFrame,
+) -> pd.DataFrame:
     """Calculate region-level performance metrics."""
 
     region_perf = (
@@ -122,20 +126,65 @@ def calculate_region_performance(orders: pd.DataFrame) -> pd.DataFrame:
 
     region_perf["late_delivery_risk_score"] = region_perf["late_delivery_rate_pct"]
 
-    region_perf["profit_risk_score"] = region_perf["profit_margin_pct"].apply(
-        lambda margin: 80 if margin < 0 else 20
+    status_counts = inventory["inventory_status"].value_counts()
+    total_inventory_items = len(inventory)
+
+    if total_inventory_items == 0:
+        inventory_risk_score = 0
+    else:
+        inventory_risk_score = (
+            (
+                status_counts.get("Critical", 0) * 1.0
+                + status_counts.get("Warning", 0) * 0.5
+            )
+            / total_inventory_items
+            * 100
+        )
+
+    region_perf["inventory_risk_score"] = round(inventory_risk_score, 2)
+
+    monthly_demand = (
+        orders.groupby(["market", "order_region", "year_month"])["order_quantity"]
+        .sum()
+        .reset_index()
+    )
+
+    demand_volatility = (
+        monthly_demand.groupby(["market", "order_region"])["order_quantity"]
+        .agg(["mean", "std"])
+        .reset_index()
+    )
+
+    demand_volatility["std"] = demand_volatility["std"].fillna(0)
+    demand_volatility["demand_volatility_risk_score"] = (
+        demand_volatility["std"]
+        / demand_volatility["mean"].replace(0, pd.NA)
+        * 100
+    ).fillna(0).clip(upper=100).round(2)
+
+    region_perf = region_perf.merge(
+        demand_volatility[
+            ["market", "order_region", "demand_volatility_risk_score"]
+        ],
+        on=["market", "order_region"],
+        how="left",
+    )
+
+    region_perf["demand_volatility_risk_score"] = (
+        region_perf["demand_volatility_risk_score"].fillna(0)
     )
 
     region_perf["performance_risk_score"] = (
-        0.50 * region_perf["late_delivery_risk_score"]
-        + 0.30 * region_perf["delay_risk_score"]
-        + 0.20 * region_perf["profit_risk_score"]
+        0.35 * region_perf["late_delivery_risk_score"]
+        + 0.25 * region_perf["inventory_risk_score"]
+        + 0.20 * region_perf["delay_risk_score"]
+        + 0.20 * region_perf["demand_volatility_risk_score"]
     ).round(2)
 
     def classify_risk(score):
-        if score < 30:
+        if score < 40:
             return "Low"
-        if score < 60:
+        if score < 70:
             return "Medium"
         return "High"
 
@@ -378,6 +427,9 @@ def show_tables(region_perf: pd.DataFrame, shipping_perf: pd.DataFrame):
             "total_profit",
             "late_delivery_rate_pct",
             "avg_delay_days",
+            "inventory_risk_score",
+            "delay_risk_score",
+            "demand_volatility_risk_score",
             "performance_risk_score",
             "risk_level",
         ]
@@ -414,7 +466,7 @@ def show_tables(region_perf: pd.DataFrame, shipping_perf: pd.DataFrame):
 
 
 def main():
-    orders, risk = load_data()
+    orders, risk, inventory = load_data()
 
     st.title("Region & Market Performance")
 
@@ -429,11 +481,11 @@ def main():
     with st.expander("How is the regional risk score calculated?", expanded=False):
         st.write(
             """
-            The regional performance risk score is calculated using late delivery rate,
-            average delay days, and profit risk. A higher score means that the region
-            has weaker delivery performance or financial performance.
+            The regional performance risk score is calculated using late delivery risk,
+            inventory risk, delay risk, and demand volatility risk. A higher score means
+            that the region has weaker operational performance.
 
-            Risk Score = 50% Late Delivery Risk + 30% Delay Risk + 20% Profit Risk
+            Risk Score = 35% Delivery Risk + 25% Inventory Risk + 20% Delay Risk + 20% Demand Volatility Risk
             """
         )
 
@@ -443,7 +495,7 @@ def main():
         st.warning("No data available for the selected filters.")
         return
 
-    region_perf = calculate_region_performance(filtered_orders)
+    region_perf = calculate_region_performance(filtered_orders, inventory)
     market_perf = calculate_market_performance(filtered_orders)
     shipping_perf = calculate_shipping_mode_performance(filtered_orders)
 
