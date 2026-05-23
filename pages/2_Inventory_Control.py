@@ -98,18 +98,20 @@ def show_kpis(inventory: pd.DataFrame):
 
     critical_items = inventory[inventory["inventory_status"] == "Critical"].shape[0]
     warning_items = inventory[inventory["inventory_status"] == "Warning"].shape[0]
+    healthy_items = inventory[inventory["inventory_status"] == "Healthy"].shape[0]
 
     avg_days_of_supply = inventory["days_of_supply"].mean()
     avg_inventory_risk = inventory["inventory_risk_score"].mean()
 
     st.subheader("Inventory Overview")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
     col1.metric("Total Products", f"{total_products:,}")
     col2.metric("Total Stock Units", f"{total_stock_units:,.0f}")
     col3.metric("Critical Items", critical_items)
     col4.metric("Warning Items", warning_items)
+    col5.metric("Healthy Items", healthy_items)
 
     col5, col6 = st.columns(2)
 

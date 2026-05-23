@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 
@@ -163,8 +164,10 @@ def create_inventory_table(products: pd.DataFrame, orders: pd.DataFrame) -> pd.D
     inventory["reorder_point"] = (inventory["average_daily_demand"] * 14).round().astype(int)
 
     # Create realistic stock levels around reorder point.
+    np.random.seed(42)
     inventory["current_stock"] = (
-        inventory["reorder_point"] * 1.4
+        inventory["reorder_point"]
+        * np.random.uniform(0.6, 1.8, size=len(inventory))
     ).round().astype(int)
 
     # Make some products intentionally risky for dashboard demonstration.
@@ -258,11 +261,12 @@ def create_risk_table(orders: pd.DataFrame, inventory: pd.DataFrame) -> pd.DataF
     ).round(2)
 
     def classify_risk(score):
-        if score < 30:
+        if score < 40:
             return "Low"
-        if score < 60:
+        elif score < 70:
             return "Medium"
-        return "High"
+        else:
+            return "High"
 
     region_perf["risk_level"] = region_perf["overall_risk_score"].apply(classify_risk)
 

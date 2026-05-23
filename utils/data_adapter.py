@@ -465,8 +465,9 @@ def create_inventory_table(products, orders):
         inventory["average_daily_demand"] * 14
     ).round().astype(int)
 
+    np.random.seed(42)
     inventory["current_stock"] = (
-        inventory["reorder_point"] * 1.4
+    inventory["reorder_point"] * np.random.uniform(0.6, 1.8, size=len(inventory))
     ).round().astype(int)
 
     if len(inventory) > 0:
@@ -517,11 +518,12 @@ def create_demand_table(orders):
 
 
 def classify_risk(score):
-    if score < 30:
+    if score < 40:
         return "Low"
-    if score < 60:
+    elif score < 70:
         return "Medium"
-    return "High"
+    else:
+        return "High"
 
 
 def create_risk_table(orders):
