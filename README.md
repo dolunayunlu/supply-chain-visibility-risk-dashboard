@@ -215,11 +215,13 @@ The uploaded dataset is used during the active Streamlit session. Users can retu
 
 ## Project Structure
 
+```text
 supply-chain-visibility-risk-dashboard/
 │
 ├── Overview.py
 ├── process_data.py
 ├── requirements.txt
+├── run_dashboard.bat
 ├── README.md
 │
 ├── data/
@@ -248,7 +250,20 @@ supply-chain-visibility-risk-dashboard/
 │   └── data_adapter.py
 │
 ├── docs/
+│   ├── er_diagram.png
+│   ├── system_architecture.png
+│   ├── use_case_diagram.png
+│   └── graduation_thesis_report.docx
+│
 └── screenshots/
+    ├── 01_data_source_manager.png
+    ├── 02_overview_uploaded_dataset.png
+    ├── 03_regional_performance_uploaded.png
+    ├── 04_inventory_control_uploaded.png
+    ├── 05_shipment_performance_uploaded.png
+    ├── 06_supply_chain_risk_uploaded.png
+    └── 07_demand_forecast_uploaded.png
+```
 
 ## Current Status
 
